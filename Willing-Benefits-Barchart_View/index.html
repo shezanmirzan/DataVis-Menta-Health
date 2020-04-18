@@ -7,6 +7,11 @@ body {
   font: 10px sans-serif;
 }
 
+#title {
+  width: 560px;
+  text-align: center;
+}
+
 .axis path,
 .axis line {
   fill: none;
@@ -18,8 +23,15 @@ body {
   display: none;
 }
 
+.legend {
+    cursor: pointer;
+}
+
 </style>
 <body>
+    <div id='title'>
+        <h2>Willing to talk about Mental Health issues VS Company provides benefits for Mental Health issue</h2>
+    </div>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
 
@@ -72,13 +84,6 @@ d3.json("data.json", function(error, data) {
       .attr("class", "y axis")
       .style('opacity','0')
       .call(yAxis)
-  .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .style('font-weight','bold')
-      .text("Value");
 
   svg.select('.y').transition().duration(500).delay(1300).style('opacity','1');
 
@@ -94,6 +99,7 @@ d3.json("data.json", function(error, data) {
       .attr("width", x1.rangeBand())
       .attr("x", function(d) { return x1(d.rate); })
       .style("fill", function(d) { return color(d.rate) })
+      .attr("class", function(d) { return "bar-" + color(d.rate) })
       .attr("y", function(d) { return y(0); })
       .attr("height", function(d) { return height - y(0); })
       .on("mouseover", function(d) {
@@ -109,6 +115,8 @@ d3.json("data.json", function(error, data) {
       .duration(1000)
       .attr("y", function(d) { return y(d.value); })
       .attr("height", function(d) { return height - y(d.value); });
+      
+
 
   //Legend
   var legend = svg.selectAll(".legend")
@@ -122,17 +130,32 @@ d3.json("data.json", function(error, data) {
       .attr("x", width - 18)
       .attr("width", 18)
       .attr("height", 18)
-      .style("fill", function(d) { return color(d); });
+      .style("fill", function(d) { return color(d); })
+      .on("mouseover", function(d) {
+          d3.selectAll("[class^=bar-]").style("opacity", "0.1");
+          d3.selectAll(".bar-" + color(d)).style("opacity", "1");
+      })
+      .on("mouseout", function(d) {
+          d3.selectAll("[class^=bar-]").style("opacity", "1");
+      });
 
   legend.append("text")
       .attr("x", width - 24)
       .attr("y", 9)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
-      .text(function(d) {return d; });
+      .text(function(d) {return d; })
+      .on("mouseover", function(d) {
+          d3.selectAll("[class^=bar-]").style("opacity", "0.1");
+          d3.selectAll(".bar-" + color(d)).style("opacity", "1");
+      })
+      .on("mouseout", function(d) {
+          d3.selectAll("[class^=bar-]").style("opacity", "1");
+      });
 
   legend.transition().duration(500).delay(function(d,i){ return 1300 + 100 * i; }).style("opacity","1");
 
 });
 
 </script>
+</body>
