@@ -1,3 +1,4 @@
+
 <html>
 <header><title>OSMI Mental Health Data Visualization</title></header>
 <head>
@@ -16,14 +17,75 @@
         margin-top: 10px;
         margin-bottom: 30px;
     }
-    </style>
+    iframe {
+        background: linen;
+        overflow:hidden;
+    }
+</style>
 </head>
 <h1 style="font-size:40px;">OSMI Mental Health Data Visualization</h1>
 <h4>Julie Bosworth, Nidhi Davawala, Shezan Rohinton Mirzan, Jay Panchal & Shirley Xu</h4>
 <body>
-    This project aims to understand how mental health is viewed in the Tech industry, the spread of mental disorders among the employees and to gauge the system present to tackle these conditions. D3 based visualizations based on the survey results of 3 different years will be implemented  to gain a multi-faceted view of our data. These designs would be beneficial to the current employees of the Tech industry, the companies themselves and the external organizations that work for the cause of mental well being in the IT industry. Insights gained through these visualizations would serve as a feedback to the entire system and thus would be highly beneficial to all the key stakeholders.    
-
-<a href="./Sun-Burst_View/index.html">Sunburst</a>
-
+This project aims to understand how mental health is viewed in the Tech industry, the spread of mental disorders among the employees and to gauge the system present to tackle these conditions. D3 based visualizations based on the survey results of 3 different years will be implemented  to gain a multi-faceted view of our data. These designs would be beneficial to the current employees of the Tech industry, the companies themselves and the external organizations that work for the cause of mental well being in the IT industry. Insights gained through these visualizations would serve as a feedback to the entire system and thus would be highly beneficial to all the key stakeholders.    
+<a href="./Sun-Burst_View/index_sunburst.html">Sunburst</a>
+<div id="includedContent"></div>
+<iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Sun-Burst_View/index_sunburst.html" height="100%" width="100%"></iframe>
+<iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./map-view/map.html" height="100%" width="100%"></iframe>
 </body>
+
+
+
+</html> 
+<!-- 
+<html>
+    <header><title>OSMI Mental Health Data Visualization</title></header>
+  <head>
+    <style>
+        body {
+          background-color: linen;
+        }
+        
+        h1 {
+          color: maroon;
+          margin-left: 0px;
+          margin:0px;
+        }
+    
+        h4 {
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+        </style>
+
+    <meta charset="utf-8">
+
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./Sun-Burst_View/skill.css"/>
+  </head>
+  <h1 style="font-size:40px;">OSMI Mental Health Data Visualization</h1>
+  <h4>Julie Bosworth, Nidhi Davawala, Shezan Rohinton Mirzan, Jay Panchal & Shirley Xu</h4>
+  <body>
+
+    This project aims to understand how mental health is viewed in the Tech industry, the spread of mental disorders among the employees and to gauge the system present to tackle these conditions. D3 based visualizations based on the survey results of 3 different years will be implemented  to gain a multi-faceted view of our data. These designs would be beneficial to the current employees of the Tech industry, the companies themselves and the external organizations that work for the cause of mental well being in the IT industry. Insights gained through these visualizations would serve as a feedback to the entire system and thus would be highly beneficial to all the key stakeholders.    
+    <div id="skills">
+      <div id="skillmap">
+        <div class="skills-wrapper">
+          <div class="skills-sunburst"></div>
+          <div class="skills-chart">
+            <div id="skills-chart-breadcrumb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./Sun-Burst_View/skillsdata.js"></script>
+    <script type="text/javascript" src="./Sun-Burst_View/skill.js"></script>
+    <script type="text/javascript">
+      // Hack to make this example display correctly in an iframe on bl.ocks.org
+      d3.select(self.frameElement).style("height", "700px");
+  </script> 
+  </body>
 </html>
+-->
+
+
