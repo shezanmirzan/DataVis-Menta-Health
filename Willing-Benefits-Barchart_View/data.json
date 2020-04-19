@@ -1,5 +1,5 @@
-[
-    {
+{
+    "2014": [{
         "categorie": "willing to talk", 
         "values": [
             {
@@ -24,5 +24,57 @@
                 "rate": "no mental health benefits by company"
             }        
         ]
-    }
-]
+    }],
+    "2016": [{
+        "categorie": "willing to talk", 
+        "values": [
+            {
+                "value": 10, 
+                "rate": "company provides mental health benefits"
+            }, 
+            {
+                "value": 30, 
+                "rate": "no mental health benefits by company"
+            }        
+        ]
+    }, 
+    {
+        "categorie": "not willing to talk", 
+        "values": [
+            {
+                "value": 40, 
+                "rate": "company provides mental health benefits"
+            }, 
+            {
+                "value": 10, 
+                "rate": "no mental health benefits by company"
+            }        
+        ]
+    }],
+    "2019": [{
+        "categorie": "willing to talk", 
+        "values": [
+            {
+                "value": 30, 
+                "rate": "company provides mental health benefits"
+            }, 
+            {
+                "value": 40, 
+                "rate": "no mental health benefits by company"
+            }        
+        ]
+    }, 
+    {
+        "categorie": "not willing to talk", 
+        "values": [
+            {
+                "value": 50, 
+                "rate": "company provides mental health benefits"
+            }, 
+            {
+                "value": 20, 
+                "rate": "no mental health benefits by company"
+            }        
+        ]
+    }]
+}
