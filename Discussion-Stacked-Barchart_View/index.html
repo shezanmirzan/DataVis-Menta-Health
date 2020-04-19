@@ -14,7 +14,9 @@
 	<body>
 		<script type="text/javascript">
 
-			//Original data
+
+
+			// Demonstration dataset; will be replaced by processed json data
 			var dataset = [
 				{ yes: 5, maybe: 10, no: 22, factor: "Baseline; no factors selected"},
 				{ yes: 4, maybe: 12, no: 28, factor: "Discussion of mental health as part of an employee wellness program"},
@@ -259,8 +261,6 @@
 			  });
 			}
 
-			// Bottom checkbox to enable 
-
 			// Add interactivity upon highlight
 			svg.selectAll(".willing")
 				.on("mouseover", function(d) {
@@ -293,5 +293,7 @@
 				});
 						
 		</script>
+
+
 	</body>
 </html>
