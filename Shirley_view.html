@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3: Stack layout stacked bar chart</title>
+		<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+		<style type="text/css">
+			.axisText path, .axisText line{
+				fill: none;
+				stroke: none;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+			//Original data
+			var dataset = [
+				{ yes: 5, maybe: 10, no: 22, factor: "Baseline; no factors selected"},
+				{ yes: 4, maybe: 12, no: 28, factor: "Discussion of mental health as part of an employee wellness program"},
+				{ yes: 2, maybe: 19, no: 32, factor: "Resources to learn more about mental health provided"},
+				{ yes: 7, maybe: 23, no: 35, factor: "Availability of sick leave"},
+				{ yes: 23, maybe: 17, no: 43, factor: "Anonymity"},
+				{ yes: 23, maybe: 17, no: 43, factor: "No negative consequence discussing physical health issues w/ employer"}
+			];
+
+			// Set dimensions
+			var w = 600;
+			var h = 60 * dataset.length;
+			var topMargin = 100;
+			var leftMargin = 100;
+			var bottomMargin = 100;
+			var wordLength = 130;
+
+			//Set up stack method
+			var stack = d3.stack()
+						  .keys([ "yes", "maybe", "no"]);
+
+			//Method to onvert dataset to percentages
+			var toPercent = function(dataset, keys){
+				output = [];
+				for (item in dataset){
+					obj = {};
+					total = 0;
+					for (key of keys){
+						total += dataset[item][key];
+					}
+					for (key of keys){
+						obj[key] = dataset[item][key] / total * 100;
+					}
+					output[item] = obj;
+				}
+				return output;
+			};
+
+
+			//Data, stacked
+			var series = stack(toPercent(dataset, ["yes", "maybe", "no"]));
+			
+			//Set up scales
+			var xScale = d3.scaleLinear()
+				.domain([0,				
+					d3.max(dataset, function(d) {
+						return d.yes + d.maybe + d.no;
+					})
+				])
+				.range([0, w]);
+			var yScale = d3.scaleBand()
+				.domain(d3.range(dataset.length))
+				.range([0, h])
+				.paddingInner(0.2);
+				
+			// Set up colors
+			var colors = d3.scaleOrdinal(dataset).range(["#B1F68A", "#FFFC80", "#FD97AC"]);
+		
+			//Create SVG element
+			var svg = d3.select("body")
+						.append("svg")
+						.attr("width", w + leftMargin)
+						.attr("height", h + topMargin + bottomMargin);
+
+			// Chart Title
+			svg.append("text")
+				.attr("x", ((w + leftMargin) / 2))             
+		        .attr("y", 25)
+		        .attr("text-anchor", "middle")  
+		        .style("font-size", "20px") 
+		        .style("font-weight", "bold") 
+				.text("Effect of different factors on willingness to discuss mental health issues");
+
+            // Chart subtitles
+            svg.append("text")
+		        .attr("x", (w / 2))             
+		        .attr("y", -34)
+		        .attr("text-anchor", "middle")  
+		        .style("font-size", "16px") 
+		        .style("text-decoration", "underline")  
+		        .text("Willingness to Discuss Mental Health Issues")
+		        .attr("transform", "translate(" + (wordLength / 2 + leftMargin) + ", " + topMargin + ")");
+
+		     svg.append("text")
+		        .attr("x", 0)             
+		        .attr("y", (h / 2))  
+		        .style("font-size", "16px") 
+		        .style("text-decoration", "underline")  
+		        .text("Factors")
+		        .attr("transform", "translate(" + 0 + ", " + topMargin + ")");
+
+			// Add a group for each row of data
+			var groups = svg.selectAll("g")
+				.data(series)
+				.enter()
+				.append("g")
+				.style("fill", function(d, i) {
+					console.log(d);
+					return colors(i);
+				})
+				.attr("class", function(d, i){
+					return ["willing", "maybe_willing", "not_willing"][i];
+				})
+				.attr("transform", "translate(" + (wordLength + leftMargin) + ", " + topMargin + ")");
+
+			// Create feature labels (y axis)
+			var scale = d3.scaleOrdinal()
+                .domain([d3.min(dataset), d3.max(dataset)])
+                .range(Array.from({length: dataset.length},(v,k)=> yScale(k) + 5));
+
+            var y_axis = d3.axisLeft()
+                  .scale(scale);
+
+            scale.domain(dataset.map(function(d) { 
+            	return d.factor; }));
+
+			svg.append("g")
+				.attr("class", "axisText")
+            	.call(y_axis)
+            	.selectAll("text")
+            	.call(wrap, wordLength)
+            	.attr("transform", "translate(" + (wordLength - 10 + leftMargin) + ", " + topMargin + ")")
+            	.style("font-size", "12px") 
+            	.style("opacity","0")
+				.transition()
+				.delay((function(d, i) { return(i * 150); }))
+				.duration(1000)
+				.style("opacity","1");
+			
+			var drawMiddleRects = function(){
+				// Add lines through middle rectangles
+				var middle_rects = groups._groups[0][1].getElementsByTagName("rect");
+				for(rect of middle_rects){
+					groups.append("line")
+						.attr("x1", rect.x.animVal.value + (rect.width.animVal.value / 2))
+						.attr("x2", rect.x.animVal.value + (rect.width.animVal.value / 2))
+						.attr("y1", rect.y.animVal.value)
+						.attr("class", "middleLine")
+						.attr("stroke-width", 2)
+						.attr("stroke", "#7F7F7F")
+						.style("opacity", "0")
+						.transition()
+						.duration(1000)
+						.style("opacity", "1")
+						.attr("y2", rect.y.animVal.value + rect.height.animVal.value)
+				}
+			}
+
+			// Add a rect for each data value
+			var rects = groups.selectAll("rect")
+				.data(function(d) { 
+					return d; })
+				.enter()
+				.append("rect")
+				.attr("y", function(d, i) {
+					return yScale(i);
+				})
+				.attr("x", function(d) {
+					return xScale(d[0]);
+				})
+				.transition()
+		      	.duration(1000)
+				.attr("width", function(d) {
+					return xScale(d[1]) - xScale(d[0]);
+				})
+				.attr("height", yScale.bandwidth())
+				.on("end", drawMiddleRects);
+
+			// Stylize first bar differently
+			try{
+				groups._groups[0][0].getElementsByTagName("rect")[0].setAttribute("style", "fill: #309603;")
+				groups._groups[0][0].getElementsByTagName("rect")[0].setAttribute("class", "firstRowRect")
+				groups._groups[0][1].getElementsByTagName("rect")[0].setAttribute("style", "fill: #FFF020;")
+				groups._groups[0][1].getElementsByTagName("rect")[0].setAttribute("class", "firstRowRect")
+				groups._groups[0][2].getElementsByTagName("rect")[0].setAttribute("style", "fill: #FB0017;")
+				groups._groups[0][2].getElementsByTagName("rect")[0].setAttribute("class", "firstRowRect")
+			}
+			catch(err){
+				console.log("Error with stylizing first bar");
+			}
+
+			// Add bar text
+			var barText = groups.selectAll(".text")
+				.data(function(d) {
+					return d; })
+				.enter()
+				.append("text")
+				.attr("class","label")
+				.attr("x", (function(d) { return xScale(d[0]) + 5; }))
+				.attr("y", (function(d, i) { return yScale(i) + 15; }))
+				.attr("dy", ".75em")
+				.text(function(d) { return Math.round(d[1] - d[0]) + "%"; })
+				.style("fill", "#000000")
+				.style("opacity","0")
+				.transition()
+				.duration(1000)
+				.style("opacity","1");
+
+			// Add top label text
+			var topRect = svg.selectAll(".firstRowRect");
+			for(rect of topRect._groups[0]){ 
+				svg.append("text").attr("class", "topLabel");
+			}
+			var topLabelText = svg.selectAll(".topLabel")
+				.data(series)
+				.text(function(d, i) { return(["Willing", "Maybe willing", "Not willing"][i]); })
+				.attr("class", function(d, i){
+					return ["willing", "maybe_willing", "not_willing"][i];
+				})
+				.attr("x", (function(d, i) { return(xScale(d[0][0]) + 5); }))
+				.attr("y", "-20")
+				.attr("dy", ".75em")
+				.attr("transform", "translate(" + (wordLength - 5 + leftMargin) + ", " + topMargin + ")")
+				.style("opacity","0")
+				.transition()
+				.delay((function(d, i) { return(i * 250); }))
+				.duration(1000)
+				.style("opacity","1");
+
+			// Wrap feature text
+			function wrap(text, width) {
+			  text.each(function() {
+			    var text = d3.select(this),
+			        words = text.text().split(/\s+/).reverse(),
+			        word,
+			        line = [],
+			        lineNumber = 0,
+			        lineHeight = 1.1, // ems
+			        y = text.attr("y"),
+			        dy = parseFloat(text.attr("dy")),
+			        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+			    while (word = words.pop()) {
+			      line.push(word);
+			      tspan.text(line.join(" "));
+			      if (tspan.node().getComputedTextLength() > width) {
+			        line.pop();
+			        tspan.text(line.join(" "));
+			        line = [word];
+			        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", lineHeight + dy + "em").text(word);
+			      }
+			    }
+			  });
+			}
+
+			// Bottom checkbox to enable 
+
+			// Add interactivity upon highlight
+			svg.selectAll(".willing")
+				.on("mouseover", function(d) {
+					d3.selectAll(".maybe_willing").transition().style("opacity", 0.2);
+					d3.selectAll(".not_willing").transition().style("opacity", 0.2);
+				})
+				.on("mouseout", function(d) {
+					d3.selectAll(".maybe_willing").transition().style("opacity", 1);
+					d3.selectAll(".not_willing").transition().style("opacity", 1);
+				});
+
+			svg.selectAll(".maybe_willing")
+				.on("mouseover", function(d) {
+					d3.selectAll(".willing").transition().style("opacity", 0.2);
+					d3.selectAll(".not_willing").transition().style("opacity", 0.2);
+				})
+				.on("mouseout", function(d) {
+					d3.selectAll(".willing").transition().style("opacity", 1);
+					d3.selectAll(".not_willing").transition().style("opacity", 1);
+				});
+
+			svg.selectAll(".not_willing")
+				.on("mouseover", function(d) {
+					d3.selectAll(".willing").transition().style("opacity", 0.2);
+					d3.selectAll(".maybe_willing").transition().style("opacity", 0.2);
+				})
+				.on("mouseout", function(d) {
+					d3.selectAll(".willing").transition().style("opacity", 1);
+					d3.selectAll(".maybe_willing").transition().style("opacity", 1);
+				});
+						
+		</script>
+	</body>
+</html>
