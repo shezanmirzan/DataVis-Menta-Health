@@ -14,16 +14,19 @@
 	<body>
 		<script type="text/javascript">
 
+			// Pull data from the data.json file
 
 
 			// Demonstration dataset; will be replaced by processed json data
 			var dataset = [
-				{ yes: 5, maybe: 10, no: 22, factor: "Baseline; no factors selected"},
-				{ yes: 4, maybe: 12, no: 28, factor: "Discussion of mental health as part of an employee wellness program"},
-				{ yes: 2, maybe: 19, no: 32, factor: "Resources to learn more about mental health provided"},
-				{ yes: 7, maybe: 23, no: 35, factor: "Availability of sick leave"},
-				{ yes: 23, maybe: 17, no: 43, factor: "Anonymity"},
-				{ yes: 23, maybe: 17, no: 43, factor: "No negative consequence discussing physical health issues w/ employer"}
+				{ willing: 5, maybe: 10, not_willing: 22, factor_id: "baseline", factor: "Baseline; no factors selected"},
+				{ willing: 4, maybe: 12, not_willing: 28, factor_id: "wellness_program", factor: "Discussion of mental health as part of an employee wellness program"},
+				{ willing: 8, maybe: 20, not_willing: 35, factor_id: "seek_help", factor: "Resources to learn about mental health & seek help provided"},
+				{ willing: 2, maybe: 19, not_willing: 32, factor_id: "care_options", factor: "Knowledge of provided mental health care options"},
+				{ willing: 7, maybe: 23, not_willing: 35, factor_id: "leave", factor: "Availability of sick leave"},
+				{ willing: 23, maybe: 17, not_willing: 43, factor_id: "anonymity", factor: "Anonymity"},
+				{ willing: 23, maybe: 17, not_willing: 43, factor_id: "phys_health_consequence", factor: "No negative consequence discussing physical health issues w/ employer"}
+				{ willing: 23, maybe: 17, not_willing: 43, factor_id: "benefits", factor: "Mental health benefits provided by employer"}
 			];
 
 			// Set dimensions
@@ -36,7 +39,7 @@
 
 			//Set up stack method
 			var stack = d3.stack()
-						  .keys([ "yes", "maybe", "no"]);
+						  .keys([ "willing", "maybe", "not_willing"]);
 
 			//Method to onvert dataset to percentages
 			var toPercent = function(dataset, keys){
@@ -57,13 +60,13 @@
 
 
 			//Data, stacked
-			var series = stack(toPercent(dataset, ["yes", "maybe", "no"]));
+			var series = stack(toPercent(dataset, ["willing", "maybe", "not_willing"]));
 			
 			//Set up scales
 			var xScale = d3.scaleLinear()
 				.domain([0,				
 					d3.max(dataset, function(d) {
-						return d.yes + d.maybe + d.no;
+						return d.willing + d.maybe + d.not_willing;
 					})
 				])
 				.range([0, w]);
@@ -88,7 +91,7 @@
 		        .attr("text-anchor", "middle")  
 		        .style("font-size", "20px") 
 		        .style("font-weight", "bold") 
-				.text("Effect of different factors on willingness to discuss mental health issues");
+				.text("Effects of factors on perception of negative consequences discussing mental health");
 
             // Chart subtitles
             svg.append("text")
@@ -97,7 +100,7 @@
 		        .attr("text-anchor", "middle")  
 		        .style("font-size", "16px") 
 		        .style("text-decoration", "underline")  
-		        .text("Willingness to Discuss Mental Health Issues")
+		        .text("Perception of consequence")
 		        .attr("transform", "translate(" + (wordLength / 2 + leftMargin) + ", " + topMargin + ")");
 
 		     svg.append("text")
@@ -222,7 +225,7 @@
 			}
 			var topLabelText = svg.selectAll(".topLabel")
 				.data(series)
-				.text(function(d, i) { return(["Willing", "Maybe willing", "Not willing"][i]); })
+				.text(function(d, i) { return(["None", "Maybe consequence", "Consequence"][i]); })
 				.attr("class", function(d, i){
 					return ["willing", "maybe_willing", "not_willing"][i];
 				})
