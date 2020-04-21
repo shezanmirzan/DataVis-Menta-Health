@@ -50,28 +50,28 @@ var svg = d3.select("body")
 		.attr("text-anchor", "middle")  
 		.style("font-size", "18px") 
 	    .style("font-weight", "bold") 
-		.text("Effects of factors on perception of negative consequences discussing mental health")
+		.text("Company Size in Comparison to if Benefits are Provided")
         .attr("transform", "translate(" + margin.left + "," + 0 + ")");
 
 //Subtitles
 //x
 svg.append("text")
-		        .attr("x", -175)             
-		        .attr("y", -30)
-		        .attr("text-anchor", "middle")  
-		        .style("font-size", "16px") 
-		        .text("Number of Companies")
-		        .attr("transform", "translate(" + (130/ 2 + margin.left) + ", " + margin.top + ")")
-                .attr("transform", function(d) {
-                    return "rotate(-90)" 
-                });
-
-		     svg.append("text")
-		        .attr("x", ((width + margin.left) / 2))             
-		        .attr("y", 1000)  
-		        .style("font-size", "16px") 
-		        .text("Number of Employees")
-		        .attr("transform", "translate(" + 0 + ", " + margin.top + ")")
+	.attr("x", -175)             
+	.attr("y", -30)
+	.attr("text-anchor", "middle")  
+	.style("font-size", "16px") 
+	.text("Number of Companies")
+	.attr("transform", "translate(" + (130/ 2 + margin.left) + ", " + margin.top + ")")
+  .attr("transform", function(d) {
+     return "rotate(-90)" 
+    });
+        
+svg.append("text")
+	.attr("x", ((width + margin.left) / 2)- 100)             
+	.attr("y", 430)  
+	.style("font-size", "16px") 
+	.text("Number of Employees")
+	.attr("transform", "translate(" + 0 + ", " + margin.bottom + ")")
                 
 
     
