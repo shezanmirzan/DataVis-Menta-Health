@@ -1,0 +1,353 @@
+,benefits,care_options,wellness_program,seek_help,anonymity,leave,phys_health_consequence,mental_health_consequence
+0,I don't know,No,Yes,Yes,I don't know,Very easy,Physical health,Yes
+1,Yes,No,No,Yes,Yes,I don't know,Physical health,Maybe
+2,I don't know,No,No,I don't know,I don't know,Somewhat difficult,Same level of comfort for each,No
+3,I don't know,No,Yes,Yes,Yes,Very easy,Physical health,Yes
+4,I don't know,No,I don't know,I don't know,I don't know,I don't know,Physical health,No
+5,Yes,No,No,No,I don't know,Somewhat difficult,Physical health,No
+6,Yes,Yes,No,I don't know,Yes,Somewhat easy,Physical health,Maybe
+7,,,,,,,,
+8,Yes,No,Yes,Yes,Yes,Very easy,Same level of comfort for each,Yes
+9,I don't know,,No,I don't know,I don't know,Somewhat easy,Same level of comfort for each,Yes
+10,Yes,Yes,No,I don't know,Yes,Very easy,Same level of comfort for each,Yes
+11,,,,,,,,
+12,I don't know,No,No,No,Yes,Somewhat easy,Physical health,Yes
+13,Yes,Yes,Yes,I don't know,I don't know,Somewhat difficult,Same level of comfort for each,Yes
+14,Yes,Yes,Yes,I don't know,I don't know,Somewhat difficult,Physical health,No
+15,Yes,Yes,No,Yes,Yes,Neither easy nor difficult,Physical health,Maybe
+16,Yes,Yes,Yes,Yes,Yes,Somewhat easy,Same level of comfort for each,Yes
+17,,,,,,,,
+18,Yes,No,Yes,I don't know,Yes,Very easy,Same level of comfort for each,Yes
+19,Yes,Yes,Yes,Yes,I don't know,I don't know,Physical health,Maybe
+20,I don't know,No,No,No,I don't know,Somewhat easy,Physical health,Maybe
+21,Yes,Yes,Yes,Yes,I don't know,I don't know,Physical health,Yes
+22,I don't know,No,No,No,Yes,Neither easy nor difficult,Same level of comfort for each,Yes
+23,Yes,Yes,Yes,Yes,I don't know,Neither easy nor difficult,Physical health,Maybe
+24,I don't know,No,No,No,I don't know,Very easy,Physical health,No
+25,I don't know,No,No,No,I don't know,Somewhat easy,Same level of comfort for each,Yes
+26,I don't know,No,No,I don't know,I don't know,Somewhat easy,Physical health,No
+27,I don't know,No,No,I don't know,I don't know,Very easy,Same level of comfort for each,Yes
+28,Yes,Yes,Yes,Yes,I don't know,Very easy,Physical health,Yes
+29,Yes,Yes,Yes,No,I don't know,I don't know,Physical health,Yes
+30,Yes,Yes,No,I don't know,I don't know,Very easy,Physical health,Maybe
+31,Yes,No,No,I don't know,I don't know,Somewhat easy,Same level of comfort for each,Yes
+32,,,,,,,,
+33,Not eligible for coverage / NA,,Yes,No,I don't know,Very easy,Physical health,Yes
+34,Yes,Yes,Yes,I don't know,I don't know,Somewhat easy,Physical health,Yes
+35,I don't know,No,No,I don't know,I don't know,Somewhat easy,Same level of comfort for each,Maybe
+36,I don't know,No,No,No,Yes,Very easy,Same level of comfort for each,Yes
+37,Yes,Yes,No,I don't know,I don't know,Somewhat easy,Physical health,No
+38,,,,,,,,
+39,,,,,,,,
+40,Yes,Yes,Yes,Yes,Yes,Somewhat difficult,Physical health,Yes
+41,Yes,Yes,Yes,Yes,I don't know,Somewhat easy,Physical health,Yes
+42,I don't know,No,No,No,I don't know,Neither easy nor difficult,Same level of comfort for each,No
+43,,,,,,,,
+44,Yes,Yes,No,Yes,Yes,Somewhat difficult,Physical health,Maybe
+45,I don't know,No,No,I don't know,I don't know,Very easy,Same level of comfort for each,Yes
+46,,,,,,,,
+47,Yes,Yes,Yes,Yes,Yes,Very easy,Same level of comfort for each,Yes
+48,Yes,Yes,Yes,Yes,I don't know,Very easy,Physical health,Yes
+49,,,,,,,,
+50,,,,,,,,
+51,,,,,,,,
+52,,,,,,,,
+53,Yes,Yes,No,I don't know,I don't know,I don't know,Physical health,No
+54,I don't know,No,I don't know,Yes,I don't know,Somewhat difficult,Same level of comfort for each,Yes
+55,No,,No,No,I don't know,Somewhat easy,Same level of comfort for each,Maybe
+56,I don't know,Yes,Yes,No,Yes,Somewhat difficult,Physical health,Maybe
+57,Yes,No,No,No,I don't know,Somewhat easy,Physical health,No
+58,Yes,Yes,I don't know,I don't know,Yes,Somewhat difficult,Physical health,Maybe
+59,Yes,Yes,Yes,Yes,Yes,Somewhat easy,Physical health,Maybe
+60,No,No,No,No,I don't know,Difficult,Physical health,No
+61,Yes,No,No,No,I don't know,Somewhat difficult,Physical health,No
+62,I don't know,No,No,No,Yes,Very easy,Physical health,Yes
+63,I don't know,No,No,No,I don't know,Neither easy nor difficult,Physical health,Maybe
+64,I don't know,Yes,No,No,Yes,Somewhat difficult,Same level of comfort for each,Maybe
+65,No,No,No,No,No,Somewhat difficult,Same level of comfort for each,Yes
+66,,,,,,,,
+67,Yes,No,No,Yes,I don't know,I don't know,Physical health,No
+68,Yes,Yes,No,I don't know,Yes,Neither easy nor difficult,Same level of comfort for each,Yes
+69,Yes,Yes,Yes,Yes,Yes,Somewhat difficult,Same level of comfort for each,Yes
+70,Yes,Yes,No,No,I don't know,I don't know,Physical health,Maybe
+71,Yes,No,No,I don't know,Yes,Very easy,Same level of comfort for each,Yes
+72,Yes,Yes,Yes,No,I don't know,I don't know,Physical health,Maybe
+73,No,No,No,No,I don't know,Very easy,Physical health,Yes
+74,No,,No,No,I don't know,Somewhat easy,Physical health,Maybe
+75,No,,Yes,No,No,I don't know,Physical health,No
+76,No,No,No,No,No,Somewhat easy,Physical health,Yes
+77,No,Yes,No,No,No,Very easy,Same level of comfort for each,Yes
+78,Not eligible for coverage / NA,,No,No,I don't know,I don't know,Physical health,No
+79,I don't know,No,No,I don't know,Yes,I don't know,Physical health,Maybe
+80,Yes,Yes,Yes,Yes,Yes,Somewhat easy,Same level of comfort for each,Yes
+81,Yes,Yes,No,Yes,Yes,Difficult,Physical health,Maybe
+82,Yes,Yes,No,No,Yes,Somewhat easy,Physical health,Yes
+83,I don't know,No,No,I don't know,I don't know,Neither easy nor difficult,Physical health,Maybe
+84,Yes,Yes,Yes,Yes,I don't know,Somewhat easy,Physical health,Maybe
+85,I don't know,No,No,No,I don't know,Somewhat easy,Physical health,Yes
+86,Yes,Yes,No,No,I don't know,I don't know,Physical health,No
+87,Yes,Yes,I don't know,No,Yes,Somewhat easy,Physical health,Yes
+88,Yes,Yes,No,No,Yes,I don't know,Physical health,Maybe
+89,No,No,Yes,No,Yes,Very easy,Physical health,Maybe
+90,I don't know,No,I don't know,I don't know,I don't know,Somewhat easy,Physical health,Maybe
+91,Yes,Yes,No,Yes,I don't know,I don't know,Physical health,No
+92,Yes,Yes,Yes,Yes,I don't know,Somewhat easy,Physical health,Maybe
+93,Yes,No,Yes,Yes,Yes,Somewhat easy,Same level of comfort for each,Yes
+94,Yes,Yes,No,Yes,I don't know,I don't know,Physical health,No
+95,Yes,Yes,Yes,No,I don't know,Somewhat difficult,Same level of comfort for each,No
+96,No,Yes,No,Yes,I don't know,I don't know,Physical health,No
+97,Yes,No,I don't know,Yes,I don't know,Very easy,Same level of comfort for each,Yes
+98,Not eligible for coverage / NA,,No,No,I don't know,Somewhat easy,Physical health,Maybe
+99,Yes,No,Yes,Yes,I don't know,Difficult,Physical health,No
+100,I don't know,No,Yes,I don't know,Yes,Very easy,Physical health,Yes
+101,I don't know,No,No,I don't know,Yes,Somewhat easy,Physical health,Maybe
+102,I don't know,Yes,No,No,I don't know,Difficult,Physical health,Maybe
+103,Yes,No,Yes,Yes,I don't know,Very easy,Same level of comfort for each,Yes
+104,,,,,,,,
+105,Yes,No,No,No,I don't know,Somewhat difficult,Physical health,No
+106,,,,,,,,
+107,I don't know,No,No,I don't know,I don't know,I don't know,Physical health,No
+108,Yes,Yes,No,No,Yes,Neither easy nor difficult,Same level of comfort for each,Maybe
+109,Yes,Yes,No,Yes,Yes,Very easy,Same level of comfort for each,Yes
+110,I don't know,No,No,No,I don't know,I don't know,Physical health,Yes
+111,I don't know,No,I don't know,I don't know,I don't know,Very easy,Physical health,Yes
+112,Yes,Yes,No,No,Yes,Very easy,Same level of comfort for each,No
+113,,,,,,,,
+114,I don't know,No,Yes,I don't know,I don't know,Very easy,Same level of comfort for each,Yes
+115,I don't know,No,No,No,I don't know,Very easy,Physical health,Yes
+116,I don't know,Yes,No,No,I don't know,Neither easy nor difficult,Physical health,Maybe
+117,Yes,Yes,Yes,Yes,Yes,Somewhat difficult,Mental health,No
+118,Yes,No,No,No,Yes,Somewhat easy,Physical health,Yes
+119,Yes,No,No,No,I don't know,Somewhat easy,Same level of comfort for each,Maybe
+120,Yes,Yes,No,I don't know,I don't know,Very easy,Physical health,Maybe
+121,Yes,Yes,Yes,Yes,I don't know,Somewhat easy,Same level of comfort for each,Yes
+122,Not eligible for coverage / NA,No,No,No,I don't know,Somewhat difficult,Physical health,No
+123,Yes,No,No,Yes,I don't know,I don't know,Physical health,No
+124,Yes,Yes,Yes,Yes,I don't know,Neither easy nor difficult,Same level of comfort for each,Yes
+125,I don't know,No,No,No,I don't know,I don't know,Same level of comfort for each,Yes
+126,Yes,Yes,Yes,Yes,I don't know,Somewhat easy,Same level of comfort for each,Yes
+127,Yes,Yes,No,No,Yes,Somewhat difficult,Same level of comfort for each,No
+128,Yes,Yes,Yes,I don't know,Yes,Neither easy nor difficult,Physical health,Maybe
+129,No,,No,No,I don't know,Somewhat easy,Same level of comfort for each,Maybe
+130,I don't know,No,No,I don't know,I don't know,Somewhat easy,Physical health,Yes
+131,Yes,No,No,I don't know,I don't know,I don't know,Physical health,Yes
+132,Yes,No,No,No,I don't know,Somewhat easy,Same level of comfort for each,Yes
+133,Yes,Yes,No,Yes,I don't know,I don't know,Physical health,Maybe
+134,Yes,Yes,No,Yes,Yes,Somewhat easy,Physical health,Maybe
+135,Yes,Yes,I don't know,I don't know,Yes,I don't know,Physical health,Maybe
+136,No,,No,No,I don't know,Somewhat easy,Physical health,No
+137,Not eligible for coverage / NA,Yes,Yes,No,I don't know,Somewhat easy,Same level of comfort for each,Yes
+138,No,No,No,No,No,Somewhat easy,Mental health,No
+139,I don't know,,No,No,I don't know,I don't know,Same level of comfort for each,Maybe
+140,Yes,Yes,No,Yes,Yes,Somewhat difficult,Physical health,No
+141,Yes,Yes,Yes,No,I don't know,Somewhat difficult,Physical health,No
+142,Yes,No,No,No,I don't know,Very easy,Same level of comfort for each,Yes
+143,Yes,Yes,I don't know,Yes,Yes,Somewhat difficult,Physical health,No
+144,I don't know,No,No,No,I don't know,I don't know,Physical health,No
+145,Yes,Yes,No,No,I don't know,Somewhat easy,Physical health,No
+146,I don't know,No,Yes,Yes,Yes,Somewhat easy,Physical health,Maybe
+147,Yes,No,Yes,Yes,Yes,Very easy,Same level of comfort for each,Yes
+148,Yes,No,Yes,Yes,Yes,Difficult,Physical health,No
+149,,,,,,,,
+150,I don't know,No,Yes,Yes,I don't know,Somewhat difficult,Physical health,No
+151,Yes,Yes,Yes,Yes,Yes,Somewhat easy,Physical health,Yes
+152,Yes,Yes,Yes,I don't know,I don't know,Somewhat easy,Same level of comfort for each,Yes
+153,Yes,Yes,Yes,Yes,I don't know,Somewhat easy,Physical health,No
+154,I don't know,No,Yes,No,Yes,Somewhat difficult,Physical health,Maybe
+155,Yes,Yes,No,No,I don't know,Somewhat difficult,Physical health,Maybe
+156,I don't know,No,No,No,Yes,Somewhat difficult,Physical health,No
+157,Yes,Yes,Yes,I don't know,Yes,I don't know,Physical health,Maybe
+158,,,,,,,,
+159,No,,I don't know,No,Yes,Very easy,Same level of comfort for each,Yes
+160,,,,,,,,
+161,,,,,,,,
+162,,,,,,,,
+163,Yes,Yes,Yes,Yes,I don't know,Somewhat easy,Physical health,Yes
+164,I don't know,No,No,I don't know,I don't know,Somewhat easy,Physical health,Maybe
+165,,,,,,,,
+166,Yes,No,No,No,I don't know,I don't know,Physical health,No
+167,Yes,Yes,Yes,I don't know,I don't know,Difficult,Physical health,Yes
+168,Yes,Yes,Yes,I don't know,Yes,Very easy,Same level of comfort for each,Yes
+169,I don't know,No,Yes,I don't know,I don't know,I don't know,Physical health,No
+170,,,,,,,,
+171,Yes,No,No,I don't know,I don't know,I don't know,Physical health,Maybe
+172,I don't know,No,No,I don't know,I don't know,Very easy,Physical health,No
+173,Yes,Yes,I don't know,Yes,I don't know,Neither easy nor difficult,Physical health,No
+174,Yes,Yes,Yes,Yes,I don't know,Difficult,Physical health,Maybe
+175,Yes,Yes,Yes,Yes,I don't know,Difficult,Same level of comfort for each,Maybe
+176,Yes,Yes,Yes,Yes,Yes,Very easy,Physical health,Maybe
+177,Yes,No,I don't know,I don't know,I don't know,I don't know,Physical health,Yes
+178,Yes,Yes,I don't know,Yes,Yes,Very easy,Same level of comfort for each,No
+179,I don't know,No,No,No,No,Somewhat easy,Physical health,No
+180,Not eligible for coverage / NA,No,Yes,No,I don't know,I don't know,Physical health,No
+181,Yes,No,Yes,Yes,Yes,Very easy,Same level of comfort for each,Yes
+182,Yes,Yes,Yes,Yes,Yes,Very easy,Physical health,Maybe
+183,Not eligible for coverage / NA,,No,No,I don't know,Very easy,Physical health,Maybe
+184,Yes,No,No,Yes,Yes,Neither easy nor difficult,Physical health,Maybe
+185,No,No,No,No,I don't know,Difficult,Physical health,No
+186,I don't know,No,No,I don't know,I don't know,Very easy,Physical health,Maybe
+187,No,,No,No,I don't know,Somewhat easy,Same level of comfort for each,Maybe
+188,No,No,No,Yes,No,Very easy,Physical health,Yes
+189,I don't know,No,No,I don't know,I don't know,Very easy,Physical health,Yes
+190,Yes,No,No,Yes,I don't know,Somewhat easy,Physical health,No
+191,,,,,,,,
+192,I don't know,No,No,I don't know,I don't know,Somewhat difficult,Physical health,Maybe
+193,I don't know,No,No,No,I don't know,Very easy,Physical health,Maybe
+194,Yes,Yes,I don't know,Yes,Yes,Neither easy nor difficult,Physical health,Maybe
+195,I don't know,No,No,I don't know,I don't know,Somewhat difficult,Physical health,No
+196,,,,,,,,
+197,Yes,Yes,Yes,Yes,I don't know,Very easy,Same level of comfort for each,Yes
+198,Yes,No,No,No,I don't know,Somewhat difficult,Same level of comfort for each,Maybe
+199,I don't know,No,No,No,I don't know,Somewhat easy,Physical health,Yes
+200,Yes,No,No,I don't know,I don't know,Very easy,Physical health,Yes
+201,Yes,Yes,Yes,Yes,Yes,Somewhat easy,Physical health,Yes
+202,Yes,Yes,Yes,Yes,I don't know,Somewhat easy,Same level of comfort for each,Yes
+203,,,,,,,,
+204,Yes,Yes,No,Yes,I don't know,I don't know,Physical health,Maybe
+205,Yes,Yes,No,No,Yes,Neither easy nor difficult,Same level of comfort for each,Maybe
+206,No,No,No,No,I don't know,Neither easy nor difficult,Physical health,No
+207,Yes,Yes,Yes,Yes,I don't know,Very easy,Same level of comfort for each,Yes
+208,Yes,Yes,Yes,Yes,I don't know,Neither easy nor difficult,Same level of comfort for each,Yes
+209,Yes,Yes,No,I don't know,Yes,Very easy,Same level of comfort for each,Yes
+210,Yes,Yes,Yes,Yes,Yes,Very easy,Same level of comfort for each,Yes
+211,Not eligible for coverage / NA,Yes,No,No,Yes,Somewhat easy,Physical health,Maybe
+212,No,No,No,No,I don't know,Very easy,Physical health,No
+213,Yes,No,Yes,Yes,I don't know,Somewhat easy,Same level of comfort for each,Yes
+214,I don't know,,Yes,No,I don't know,Very easy,Same level of comfort for each,Maybe
+215,,,,,,,,
+216,Yes,Yes,Yes,No,Yes,Very easy,Physical health,Yes
+217,Not eligible for coverage / NA,,Yes,I don't know,Yes,I don't know,Physical health,Maybe
+218,Not eligible for coverage / NA,,No,No,I don't know,Neither easy nor difficult,Physical health,No
+219,Yes,Yes,No,No,I don't know,Somewhat difficult,Physical health,No
+220,I don't know,Yes,I don't know,Yes,I don't know,Somewhat easy,Physical health,No
+221,Yes,Yes,No,Yes,Yes,Difficult,Physical health,Yes
+222,,,,,,,,
+223,Yes,Yes,No,Yes,Yes,Neither easy nor difficult,Physical health,Maybe
+224,I don't know,No,No,No,Yes,Somewhat easy,Physical health,Yes
+225,Yes,No,No,I don't know,I don't know,Very easy,Same level of comfort for each,Maybe
+226,I don't know,Yes,No,No,I don't know,Difficult,Physical health,No
+227,Not eligible for coverage / NA,No,No,No,I don't know,Very easy,Same level of comfort for each,Yes
+228,No,No,I don't know,I don't know,I don't know,Very easy,Same level of comfort for each,Yes
+229,I don't know,No,No,No,I don't know,Very easy,Physical health,Maybe
+230,I don't know,No,No,No,I don't know,Somewhat easy,Same level of comfort for each,Maybe
+231,,,,,,,,
+232,Yes,Yes,Yes,Yes,Yes,I don't know,Physical health,Maybe
+233,Yes,No,Yes,I don't know,I don't know,Very easy,Physical health,Yes
+234,Yes,Yes,Yes,Yes,Yes,Very easy,Same level of comfort for each,Yes
+235,Yes,No,No,No,No,Somewhat easy,Physical health,No
+236,Yes,Yes,I don't know,I don't know,I don't know,Somewhat easy,Same level of comfort for each,Yes
+237,Yes,Yes,No,No,I don't know,I don't know,Physical health,Yes
+238,Not eligible for coverage / NA,,No,No,I don't know,I don't know,Physical health,Maybe
+239,,,,,,,,
+240,No,No,No,No,No,Difficult,Physical health,No
+241,,,,,,,,
+242,No,No,No,No,I don't know,Somewhat easy,Same level of comfort for each,No
+243,I don't know,No,Yes,Yes,Yes,Somewhat easy,Physical health,Maybe
+244,Yes,Yes,Yes,Yes,I don't know,I don't know,Same level of comfort for each,Maybe
+245,I don't know,No,No,No,I don't know,Somewhat difficult,Physical health,Maybe
+246,Not eligible for coverage / NA,No,No,No,I don't know,Somewhat easy,Same level of comfort for each,Yes
+247,I don't know,No,Yes,I don't know,I don't know,I don't know,Physical health,Maybe
+248,Yes,Yes,Yes,Yes,Yes,I don't know,Physical health,Maybe
+249,I don't know,No,No,No,I don't know,Very easy,Same level of comfort for each,Maybe
+250,Yes,Yes,Yes,Yes,I don't know,Very easy,Same level of comfort for each,Yes
+251,I don't know,No,I don't know,I don't know,I don't know,I don't know,Physical health,Maybe
+252,Yes,Yes,Yes,Yes,I don't know,Somewhat easy,Physical health,Maybe
+253,Not eligible for coverage / NA,,Yes,I don't know,I don't know,I don't know,Physical health,Yes
+254,No,No,No,No,I don't know,Difficult,Same level of comfort for each,Maybe
+255,,,,,,,,
+256,Yes,No,Yes,Yes,Yes,Very easy,Same level of comfort for each,Yes
+257,Yes,Yes,Yes,Yes,Yes,I don't know,Same level of comfort for each,Yes
+258,I don't know,No,Yes,I don't know,I don't know,Neither easy nor difficult,Physical health,Maybe
+259,Yes,No,No,Yes,Yes,Somewhat difficult,Physical health,No
+260,,,,,,,,
+261,Not eligible for coverage / NA,,No,I don't know,I don't know,I don't know,Physical health,Maybe
+262,I don't know,No,Yes,No,I don't know,Somewhat easy,Physical health,No
+263,Yes,Yes,No,No,Yes,Very easy,Same level of comfort for each,Yes
+264,Yes,No,No,No,I don't know,Neither easy nor difficult,Physical health,No
+265,,,,,,,,
+266,Yes,No,Yes,No,No,Difficult,Physical health,No
+267,Yes,Yes,Yes,Yes,I don't know,Somewhat difficult,Physical health,No
+268,I don't know,No,No,No,I don't know,Somewhat easy,Same level of comfort for each,Yes
+269,Not eligible for coverage / NA,,Yes,No,I don't know,Very easy,Physical health,Yes
+270,Yes,Yes,No,I don't know,Yes,Difficult,Physical health,No
+271,,,,,,,,
+272,Yes,Yes,No,No,Yes,Somewhat difficult,Physical health,No
+273,No,No,No,No,I don't know,I don't know,Physical health,Maybe
+274,I don't know,No,I don't know,I don't know,I don't know,Neither easy nor difficult,Same level of comfort for each,Maybe
+275,,,,,,,,
+276,Yes,Yes,No,I don't know,Yes,Somewhat easy,Same level of comfort for each,Yes
+277,,,,,,,,
+278,,,,,,,,
+279,No,No,No,Yes,Yes,Somewhat difficult,Physical health,No
+280,No,No,Yes,No,I don't know,Neither easy nor difficult,Same level of comfort for each,No
+281,Yes,Yes,No,No,I don't know,Neither easy nor difficult,Physical health,No
+282,Yes,Yes,No,No,Yes,Very easy,Physical health,Yes
+283,I don't know,No,No,No,I don't know,I don't know,Physical health,Maybe
+284,I don't know,No,No,No,I don't know,Somewhat easy,Physical health,Yes
+285,Not eligible for coverage / NA,No,I don't know,I don't know,I don't know,I don't know,Physical health,No
+286,,,,,,,,
+287,No,,No,No,No,Neither easy nor difficult,Same level of comfort for each,No
+288,I don't know,No,No,No,Yes,Somewhat easy,Physical health,No
+289,Yes,Yes,No,No,I don't know,Neither easy nor difficult,Physical health,No
+290,Yes,Yes,Yes,Yes,I don't know,Difficult,Physical health,Maybe
+291,,,,,,,,
+292,I don't know,No,I don't know,I don't know,I don't know,Somewhat easy,Physical health,Yes
+293,,,,,,,,
+294,Yes,Yes,Yes,Yes,I don't know,Neither easy nor difficult,Physical health,Yes
+295,I don't know,No,No,No,I don't know,Somewhat easy,Physical health,No
+296,Yes,Yes,No,No,I don't know,Somewhat difficult,Physical health,No
+297,No,No,No,No,I don't know,Somewhat easy,Physical health,Maybe
+298,No,,No,No,No,Somewhat difficult,Physical health,Yes
+299,Yes,Yes,Yes,Yes,Yes,Somewhat easy,Physical health,Maybe
+300,Yes,No,Yes,Yes,Yes,Very easy,Physical health,Yes
+301,I don't know,No,No,No,I don't know,Somewhat easy,Physical health,No
+302,I don't know,No,Yes,Yes,I don't know,Difficult,Physical health,No
+303,Yes,No,No,No,I don't know,I don't know,Same level of comfort for each,No
+304,I don't know,No,No,No,I don't know,Somewhat easy,Same level of comfort for each,Yes
+305,I don't know,No,No,No,No,Somewhat easy,Physical health,No
+306,I don't know,No,No,No,I don't know,Somewhat difficult,Physical health,No
+307,Yes,Yes,Yes,Yes,I don't know,Somewhat easy,Physical health,Yes
+308,,,,,,,,
+309,,,,,,,,
+310,I don't know,No,No,No,I don't know,Difficult,Physical health,Maybe
+311,Yes,No,I don't know,I don't know,Yes,Somewhat easy,Same level of comfort for each,Yes
+312,Yes,Yes,Yes,Yes,I don't know,Somewhat easy,Physical health,No
+313,I don't know,,No,I don't know,Yes,Very easy,Same level of comfort for each,Yes
+314,Yes,Yes,Yes,No,Yes,Somewhat difficult,Same level of comfort for each,Yes
+315,Yes,Yes,Yes,Yes,Yes,I don't know,Same level of comfort for each,Yes
+316,,,,,,,,
+317,I don't know,Yes,No,No,Yes,Somewhat difficult,Physical health,Maybe
+318,,,,,,,,
+319,Yes,No,No,Yes,I don't know,Somewhat difficult,Physical health,Yes
+320,Yes,Yes,No,Yes,I don't know,Somewhat easy,Physical health,No
+321,No,No,Yes,No,No,Somewhat difficult,Physical health,No
+322,I don't know,No,Yes,Yes,I don't know,I don't know,Physical health,No
+323,Yes,Yes,No,I don't know,Yes,Somewhat easy,Physical health,Yes
+324,Yes,Yes,Yes,Yes,Yes,Somewhat easy,Physical health,Maybe
+325,Yes,Yes,No,No,I don't know,Neither easy nor difficult,Physical health,No
+326,I don't know,No,No,Yes,I don't know,Somewhat easy,Physical health,Yes
+327,I don't know,No,I don't know,Yes,I don't know,Somewhat difficult,Same level of comfort for each,Yes
+328,Yes,Yes,Yes,Yes,Yes,Neither easy nor difficult,Same level of comfort for each,Yes
+329,Not eligible for coverage / NA,,No,No,I don't know,Somewhat difficult,Physical health,No
+330,Yes,Yes,No,Yes,Yes,Somewhat difficult,Physical health,Maybe
+331,Yes,Yes,Yes,Yes,I don't know,Very easy,Same level of comfort for each,Yes
+332,No,No,No,No,I don't know,Very easy,Physical health,No
+333,I don't know,No,No,I don't know,Yes,I don't know,Physical health,Maybe
+334,Yes,Yes,No,I don't know,Yes,Very easy,Physical health,Yes
+335,Yes,Yes,No,No,Yes,I don't know,Physical health,Yes
+336,Yes,Yes,Yes,I don't know,I don't know,Somewhat easy,Physical health,No
+337,I don't know,No,I don't know,I don't know,I don't know,Very easy,Same level of comfort for each,Maybe
+338,Yes,Yes,Yes,Yes,Yes,Somewhat easy,Physical health,Yes
+339,I don't know,,Yes,Yes,Yes,Neither easy nor difficult,Physical health,Maybe
+340,Yes,No,No,Yes,I don't know,Somewhat difficult,Physical health,No
+341,No,No,No,No,No,Somewhat difficult,Physical health,No
+342,No,,No,No,I don't know,Neither easy nor difficult,Physical health,Maybe
+343,,,,,,,,
+344,Yes,No,No,I don't know,I don't know,Somewhat difficult,Physical health,No
+345,Yes,No,No,No,Yes,Very easy,Same level of comfort for each,Yes
+346,No,No,No,No,I don't know,Very easy,Physical health,Maybe
+347,I don't know,No,No,I don't know,I don't know,Somewhat difficult,Physical health,No
+348,,,,,,,,
+349,,,,,,,,
+350,No,No,No,No,Yes,Difficult,Physical health,No
+351,Yes,Yes,No,Yes,Yes,Somewhat difficult,Physical health,Maybe
