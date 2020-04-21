@@ -73,7 +73,8 @@
             //var hG = histoGram(tFUpdate,barID);
 
 			d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
-			
+
+    
 			d3.select("#tooltip").html(toolTip(d.n, st.freq, tF))  
 				.style("left", (d3.event.pageX) + "px")     
                 .style("top", (d3.event.pageY - 28) + "px");
@@ -88,21 +89,36 @@
         
     // compute total for each state.
     curData.forEach(function(d){d.total=d.freq.Anxiety_Disorder+d.freq.Mood_Disorder+d.freq.Personality_Disorder;});
+    console.log(curData);  
     d3.select(id).selectAll(".state")
         .data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
         //.style("fill",function(d){ return data[d.id].color; })
-        .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      style("fill",function(d){ 
+        .style("fill",function(d){ 
             ct = curData.filter(function(s){ return s.State == d.id;})[0];
-            console.log(ct);
-            return d3.interpolate("#ffffcc", "#800026")(ct["total"]/100); })
+            console.log("Nidhi")
+            return d3.interpolate("#ffffcc", "#800026")(ct["total"]/100);
+        })
         .on("mouseover", mouseOver).on("mouseout", mouseOut);
+
+        tF = ['Anxiety_Disorder', 'Mood_Disorder', 'Personality_Disorder'].map(function(d){
+            return {type:d, freq: d3.sum(curData.map(function(t){ return t.freq[d];}))};
+             
+        });
+
+        d3.select(id).selectAll(".state").transition()
+        //.data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
+        //.style("fill",function(d){ return data[d.id].color; })
+        .style("fill",function(d){ 
+
+            const arrSum = arr => arr.reduce((a,b) => a + b, 0)
+	        deno = arrSum(tF.map(function(d,i){ return tF[i].freq}));  
+            ct = curData.filter(function(s){ return s.State == d.id;})[0];
+            return d3.interpolate("white", "black")(((ct["total"])*100/deno).toFixed(2)/10);
+        })
     // calculate total frequency by segment for all state.
-    console.log(curData);
+    
     //var tF = ['low','mid','high'].map(function(d){
-    tF = ['Anxiety_Disorder', 'Mood_Disorder', 'Personality_Disorder'].map(function(d){
-        return {type:d, freq: d3.sum(curData.map(function(t){ return t.freq[d];}))};
-         
-    });
+
     console.log(tF);
     
     //var sF = fData.map(function(d,i){return [d.State,d.total];});
@@ -113,7 +129,7 @@
     var barColor = 'steelblue';
     function segColor(c){ return {low:"#807dba", mid:"#e08214",high:"#41ab5d"}[c]; }
 
-    uStates.draw1 = function(id, data, toolTip){		
+/*     uStates.draw1 = function(id, data, toolTip){		
 		function mouseOver(d){
 			d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
 			
@@ -130,18 +146,19 @@
 			.data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
 			.style("fill",function(d){ return data[d.id].color; })
 			.on("mouseover", mouseOver).on("mouseout", mouseOut);
-    }
+    } */
     
     function histoGram(fD,id){
         var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
         hGDim.w = 300 - hGDim.l - hGDim.r, 
         hGDim.h = 300 - hGDim.t - hGDim.b;
-            
+        
         //create svg for histogram.
         var hGsvg = d3.select(id).append("svg")
             .attr("width", hGDim.w + hGDim.l + hGDim.r)
             .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
             .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
+
 
         var xArray = ['Anxiety', 'Mood', 'Personality'];
         // create function for x-axis mapping.
@@ -153,7 +170,7 @@
         hGsvg.append("g").attr("class", "x axis")
             .attr("transform", "translate(0," + hGDim.h + ")")
             .call(d3.svg.axis().scale(x).orient("bottom"));
-        
+
         //console.log(fD)
         var getArray = fD.map(function(d,i){ return fD[i].freq}); 
         // Create function for y-axis map.
@@ -161,6 +178,7 @@
                 //.domain(fD.map(function(d) { return d.freq; }));
                 .domain([0,d3.max(getArray)]);
                 //.domain([0, d3.max(fD, function(d) { return d[1]; })]);
+
         // Create bars for histogram to contain rectangles and freq labels.
         var bars = hGsvg.selectAll(".bar").data(fD).enter()
                 .append("g").attr("class", "bar");
