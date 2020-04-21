@@ -14,7 +14,30 @@
 	<body>
 		<script type="text/javascript">
 
-			// Pull data from the data.json file
+			// Pull data from the csv files
+			var data_2014 = d3.csv("2014-data.csv", function(data) {
+				counts = [];
+			    for (var i = 0; i < data.length; i++) {
+			    	factors = ["baseline", "wellness_program", "seek_help", "care_options", "leave", "anonymity", "phys_health_consequence", "benefits"];
+			    	pos_values = [[], ["Yes", "TRUE"], ["Yes", "TRUE"], ["Yes", "TRUE"], ["Yes", "TRUE"], ["Very easy", "Somewhat easy"], ["Yes", "TRUE"], ["No", "FALSE"], ["Yes", "TRUE"]];
+			    	factor_descr = {baseline: "Baseline; no factors selected",
+			    	wellness_program: "Discussion of mental health as part of an employee wellness program",
+			    	seek_help: "Resources to learn about mental health & seek help provided",
+			    	care_options: "Knowledge of provided mental health care options",
+			    	leave: "Availability of sick leave is easy",
+			    	anonymity: "Anonymity",
+			    	phys_health_consequence: "No negative consequence discussing physical health issues w/ employer",
+			    	benefits: "Mental health benefits provided by employer"}
+			    	for(factor of factors){
+			    		if(counts[factor] == undefined){
+							counts[factor] = {willing: 0, maybe: 0, not_willing: 0, factor_id: factor, factor: factor_descr[factor]}
+			    		}
+			    	}
+			        console.log(data[i].Name);
+			        console.log(data[i].Age);
+			    }
+			    console.log(data);
+			});
 
 
 			// Demonstration dataset; will be replaced by processed json data
@@ -23,9 +46,9 @@
 				{ willing: 4, maybe: 12, not_willing: 28, factor_id: "wellness_program", factor: "Discussion of mental health as part of an employee wellness program"},
 				{ willing: 8, maybe: 20, not_willing: 35, factor_id: "seek_help", factor: "Resources to learn about mental health & seek help provided"},
 				{ willing: 2, maybe: 19, not_willing: 32, factor_id: "care_options", factor: "Knowledge of provided mental health care options"},
-				{ willing: 7, maybe: 23, not_willing: 35, factor_id: "leave", factor: "Availability of sick leave"},
+				{ willing: 7, maybe: 23, not_willing: 35, factor_id: "leave", factor: "Availability of sick leave is easy"},
 				{ willing: 23, maybe: 17, not_willing: 43, factor_id: "anonymity", factor: "Anonymity"},
-				{ willing: 23, maybe: 17, not_willing: 43, factor_id: "phys_health_consequence", factor: "No negative consequence discussing physical health issues w/ employer"}
+				{ willing: 23, maybe: 17, not_willing: 43, factor_id: "phys_health_consequence", factor: "No negative consequence discussing physical health issues w/ employer"},
 				{ willing: 23, maybe: 17, not_willing: 43, factor_id: "benefits", factor: "Mental health benefits provided by employer"}
 			];
 
