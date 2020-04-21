@@ -47,21 +47,83 @@
 	#tooltip tr td:nth-child(2){
 		text-align:center;
 	}
+	#title {
+  width: 560px;
+  text-align: center;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.legend {
+  cursor: pointer;
+}
+
+.ticks {
+  font-size: 10px;
+}
+
+.track,
+.track-overlay {
+  stroke-linecap: round;
+}
+
+.track {
+  stroke: #000;
+  stroke-opacity: 0.3;
+  stroke-width: 10px;
+}
+
+.track-overlay {
+  pointer-events: stroke;
+  stroke-width: 50px;
+  stroke: transparent;
+  cursor: crosshair;
+}
+
+.handle {
+  fill: #fff;
+  stroke: #000;
+  stroke-opacity: 0.5;
+  stroke-width: 1.25px;
+}
 </style>
 <body>
 <div id="tooltip"></div><!-- div to hold tooltip. -->
 <div id='dashboard'></div>
-<svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
-<svg width="300" height="600" id="barsvg"></svg> <!-- svg to hold the bar chart. -->
+<div id='sliderDiv'></div>
+<svg width="960" height="600" id="statesvg" position="absolute"></svg> <!-- svg to hold the map. -->
+<svg width="300" height="300" id="barsvg" position="absolute"></svg> <!-- svg to hold the bar chart. -->
+<svg width="300" height="300" id="slidersvg" position="absolute"></svg> <!-- svg to hold the bar chart. -->
 <script src="uStates.js"></script> <!-- creates uStates. -->
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
 
-	function tooltipHtml(n, d){	/* function to create html content string in tooltip div. */
+/* 	function tooltipHtml(n, d){	/* function to create html content string in tooltip div. 
 		return "<h4>"+n+"</h4><table>"+
-			"<tr><td>Low</td><td>"+(d.low)+"</td></tr>"+
-			"<tr><td>Average</td><td>"+(d.avg)+"</td></tr>"+
-			"<tr><td>High</td><td>"+(d.high)+"</td></tr>"+
+			"<tr><td>Anxiety</td><td>"+(d.Anxiety_Disorder)+"</td></tr>"+
+			"<tr><td>Mood</td><td>"+(d.Mood_Disorder)+"</td></tr>"+
+			"<tr><td>Personality</td><td>"+(d.Personality_Disorder)+"</td></tr>"+
+			"</table>";
+	}
+ */
+ function tooltipHtml(n,d,t){	/* function to create html content string in tooltip div. */
+	//var deno=0;
+    const arrSum = arr => arr.reduce((a,b) => a + b, 0)
+	deno = arrSum(t.map(function(d,i){ return t[i].freq})); 
+    //console.log(deno)
+	var num = d.Anxiety_Disorder+d.Mood_Disorder+d.Personality_Disorder
+	//console.log(num)
+		return "<h4>"+n+"</h4><table>"+
+			"<tr><td>Percent(%): </td><td>"+((num)*100/deno).toFixed(2)+"</td></tr>"+
 			"</table>";
 	}
 
@@ -78,9 +140,10 @@
         ,{State:'KS',freq:{low:162, mid:379, high:471}}
         ];
 	
-	var Data2014 = [{State:'HI', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'AK', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'FL', freq:{Anxiety_Disorder:5, Mood_Disorder:1, Personality_Disorder:0}}, {State:'SC', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'GA', freq:{Anxiety_Disorder:3, Mood_Disorder:2, Personality_Disorder:0}}, {State:'AL', freq:{Anxiety_Disorder:1, Mood_Disorder:0, Personality_Disorder:0}}, {State:'NC', freq:{Anxiety_Disorder:8, Mood_Disorder:2, Personality_Disorder:0}}, {State:'TN', freq:{Anxiety_Disorder:8, Mood_Disorder:3, Personality_Disorder:0}}, {State:'RI', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'CT', freq:{Anxiety_Disorder:4, Mood_Disorder:0, Personality_Disorder:0}}, {State:'MA', freq:{Anxiety_Disorder:4, Mood_Disorder:5, Personality_Disorder:0}}, {State:'ME', freq:{Anxiety_Disorder:2, Mood_Disorder:0, Personality_Disorder:0}}, {State:'NH', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'VT', freq:{Anxiety_Disorder:0, Mood_Disorder:1, Personality_Disorder:0}}, {State:'NY', freq:{Anxiety_Disorder:15, Mood_Disorder:5, Personality_Disorder:1}}, {State:'NJ', freq:{Anxiety_Disorder:2, Mood_Disorder:1, Personality_Disorder:0}}, {State:'PA', freq:{Anxiety_Disorder:17, Mood_Disorder:3, Personality_Disorder:0}}, {State:'DE', freq:{Anxiety_Disorder:1, Mood_Disorder:0, Personality_Disorder:0}}, {State:'MD', freq:{Anxiety_Disorder:3, Mood_Disorder:2, Personality_Disorder:0}}, {State:'WV', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'KY', freq:{Anxiety_Disorder:2, Mood_Disorder:0, Personality_Disorder:0}}, {State:'OH', freq:{Anxiety_Disorder:6, Mood_Disorder:3, Personality_Disorder:0}}, {State:'MI', freq:{Anxiety_Disorder:12, Mood_Disorder:3, Personality_Disorder:0}}, {State:'WY', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'MT', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'ID', freq:{Anxiety_Disorder:1, Mood_Disorder:1, Personality_Disorder:0}}, {State:'WA', freq:{Anxiety_Disorder:10, Mood_Disorder:6, Personality_Disorder:1}}, {State:'DC', freq:{Anxiety_Disorder:1, Mood_Disorder:1, Personality_Disorder:0}}, {State:'TX', freq:{Anxiety_Disorder:15, Mood_Disorder:6, Personality_Disorder:0}}, {State:'CA', freq:{Anxiety_Disorder:35, Mood_Disorder:24, Personality_Disorder:0}}, {State:'AZ', freq:{Anxiety_Disorder:2, Mood_Disorder:0, Personality_Disorder:0}}, {State:'NV', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'UT', freq:{Anxiety_Disorder:3, Mood_Disorder:0, Personality_Disorder:0}}, {State:'CO', freq:{Anxiety_Disorder:8, Mood_Disorder:4, Personality_Disorder:0}}, {State:'NM', freq:{Anxiety_Disorder:0, Mood_Disorder:2, Personality_Disorder:0}}, {State:'OR', freq:{Anxiety_Disorder:10, Mood_Disorder:5, Personality_Disorder:0}}, {State:'ND', freq:{Anxiety_Disorder:1, Mood_Disorder:2, Personality_Disorder:0}}, {State:'SD', freq:{Anxiety_Disorder:0, Mood_Disorder:1, Personality_Disorder:0}}, {State:'NE', freq:{Anxiety_Disorder:2, Mood_Disorder:1, Personality_Disorder:0}}, {State:'IA', freq:{Anxiety_Disorder:2, Mood_Disorder:3, Personality_Disorder:0}}, {State:'MS', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'IN', freq:{Anxiety_Disorder:8, Mood_Disorder:4, Personality_Disorder:0}}, {State:'IL', freq:{Anxiety_Disorder:19, Mood_Disorder:9, Personality_Disorder:0}}, {State:'MN', freq:{Anxiety_Disorder:13, Mood_Disorder:7, Personality_Disorder:0}}, {State:'WI', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'MO', freq:{Anxiety_Disorder:2, Mood_Disorder:1, Personality_Disorder:0}}, {State:'AR', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'OK', freq:{Anxiety_Disorder:3, Mood_Disorder:2, Personality_Disorder:0}}, {State:'KS', freq:{Anxiety_Disorder:2, Mood_Disorder:3, Personality_Disorder:0}}, {State:'LS', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'VA', freq:{Anxiety_Disorder:4, Mood_Disorder:2, Personality_Disorder:0}}];
+	//var Data2014 = [{State:'HI', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'AK', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'FL', freq:{Anxiety_Disorder:5, Mood_Disorder:1, Personality_Disorder:0}}, {State:'SC', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'GA', freq:{Anxiety_Disorder:3, Mood_Disorder:2, Personality_Disorder:0}}, {State:'AL', freq:{Anxiety_Disorder:1, Mood_Disorder:0, Personality_Disorder:0}}, {State:'NC', freq:{Anxiety_Disorder:8, Mood_Disorder:2, Personality_Disorder:0}}, {State:'TN', freq:{Anxiety_Disorder:8, Mood_Disorder:3, Personality_Disorder:0}}, {State:'RI', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'CT', freq:{Anxiety_Disorder:4, Mood_Disorder:0, Personality_Disorder:0}}, {State:'MA', freq:{Anxiety_Disorder:4, Mood_Disorder:5, Personality_Disorder:0}}, {State:'ME', freq:{Anxiety_Disorder:2, Mood_Disorder:0, Personality_Disorder:0}}, {State:'NH', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'VT', freq:{Anxiety_Disorder:0, Mood_Disorder:1, Personality_Disorder:0}}, {State:'NY', freq:{Anxiety_Disorder:15, Mood_Disorder:5, Personality_Disorder:1}}, {State:'NJ', freq:{Anxiety_Disorder:2, Mood_Disorder:1, Personality_Disorder:0}}, {State:'PA', freq:{Anxiety_Disorder:17, Mood_Disorder:3, Personality_Disorder:0}}, {State:'DE', freq:{Anxiety_Disorder:1, Mood_Disorder:0, Personality_Disorder:0}}, {State:'MD', freq:{Anxiety_Disorder:3, Mood_Disorder:2, Personality_Disorder:0}}, {State:'WV', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'KY', freq:{Anxiety_Disorder:2, Mood_Disorder:0, Personality_Disorder:0}}, {State:'OH', freq:{Anxiety_Disorder:6, Mood_Disorder:3, Personality_Disorder:0}}, {State:'MI', freq:{Anxiety_Disorder:12, Mood_Disorder:3, Personality_Disorder:0}}, {State:'WY', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'MT', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'ID', freq:{Anxiety_Disorder:1, Mood_Disorder:1, Personality_Disorder:0}}, {State:'WA', freq:{Anxiety_Disorder:10, Mood_Disorder:6, Personality_Disorder:1}}, {State:'DC', freq:{Anxiety_Disorder:1, Mood_Disorder:1, Personality_Disorder:0}}, {State:'TX', freq:{Anxiety_Disorder:15, Mood_Disorder:6, Personality_Disorder:0}}, {State:'CA', freq:{Anxiety_Disorder:35, Mood_Disorder:24, Personality_Disorder:0}}, {State:'AZ', freq:{Anxiety_Disorder:2, Mood_Disorder:0, Personality_Disorder:0}}, {State:'NV', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'UT', freq:{Anxiety_Disorder:3, Mood_Disorder:0, Personality_Disorder:0}}, {State:'CO', freq:{Anxiety_Disorder:8, Mood_Disorder:4, Personality_Disorder:0}}, {State:'NM', freq:{Anxiety_Disorder:0, Mood_Disorder:2, Personality_Disorder:0}}, {State:'OR', freq:{Anxiety_Disorder:10, Mood_Disorder:5, Personality_Disorder:0}}, {State:'ND', freq:{Anxiety_Disorder:1, Mood_Disorder:2, Personality_Disorder:0}}, {State:'SD', freq:{Anxiety_Disorder:0, Mood_Disorder:1, Personality_Disorder:0}}, {State:'NE', freq:{Anxiety_Disorder:2, Mood_Disorder:1, Personality_Disorder:0}}, {State:'IA', freq:{Anxiety_Disorder:2, Mood_Disorder:3, Personality_Disorder:0}}, {State:'MS', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'IN', freq:{Anxiety_Disorder:8, Mood_Disorder:4, Personality_Disorder:0}}, {State:'IL', freq:{Anxiety_Disorder:19, Mood_Disorder:9, Personality_Disorder:0}}, {State:'MN', freq:{Anxiety_Disorder:13, Mood_Disorder:7, Personality_Disorder:0}}, {State:'WI', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'MO', freq:{Anxiety_Disorder:2, Mood_Disorder:1, Personality_Disorder:0}}, {State:'AR', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'OK', freq:{Anxiety_Disorder:3, Mood_Disorder:2, Personality_Disorder:0}}, {State:'KS', freq:{Anxiety_Disorder:2, Mood_Disorder:3, Personality_Disorder:0}}, {State:'LS', freq:{Anxiety_Disorder:0, Mood_Disorder:0, Personality_Disorder:0}}, {State:'VA', freq:{Anxiety_Disorder:4, Mood_Disorder:2, Personality_Disorder:0}}];
 	
-	var sampleData ={};	/* Sample random data. */	
+	
+	var sampleData ={};	/* Sample random data. */
 	["HI", "AK", "FL", "SC", "GA", "AL", "NC", "TN", "RI", "CT", "MA",
 	"ME", "NH", "VT", "NY", "NJ", "PA", "DE", "MD", "WV", "KY", "OH", 
 	"MI", "WY", "MT", "ID", "WA", "DC", "TX", "CA", "AZ", "NV", "UT", 
@@ -93,12 +156,104 @@
 			sampleData[d]={low:d3.min([low,mid,high]), high:d3.max([low,mid,high]), 
 					avg:Math.round((low+mid+high)/3), color:d3.interpolate("#ffffcc", "#800026")(low/100)}; 
 		});
+		
 	
-	/* draw states on id #statesvg */	
-	//uStates.draw("#statesvg", sampleData, tooltipHtml);
-	//uStates.draw("#statesvg", sampleData, tooltipHtml, freqData,"#barsvg");
-	uStates.draw("#statesvg", sampleData, tooltipHtml, Data2014,"#barsvg");
-	d3.select(self.frameElement).style("height", "600px"); 
-</script>
+	
+	//Slider
 
+	var margin = {
+        top: 20,
+        right: 20,
+        bottom: 60,
+        left: 40
+    },
+    width = 560 - margin.left - margin.right,
+	height = 300 - margin.top - margin.bottom;
+
+	var svg = d3.select('body').append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	console.log(svg);
+
+	d3.json("data.json", function(error, yearData){
+	uStates.draw("#statesvg", sampleData, tooltipHtml, yearData[2014],"#barsvg");
+
+	var slider = svg.append('g')
+        .classed('slider', true)
+		.attr('transform', "translate(" + (margin.left +150) + ", " + (height + margin.bottom - 250) + ")");
+	
+	var slideScale = d3.scale.linear()
+        .domain([0, 1])
+        .range([0, width - margin.left - margin.right -150])
+		.clamp(true); 
+	
+	var rangeValues = [0, 1];
+
+	slideScale.clamp(true);
+
+	var drag = d3.behavior.drag();
+    drag.origin(Object)
+        .on("dragend", function() {
+            dragged(d3.mouse(this)['0']);
+        });
+
+    var track = slider.append('line')
+        .attr("class", "track")
+        .attr('x1', slideScale.range()[0])
+		.attr('x2', slideScale.range()[1]);
+		var tickValues = [2014,2019];
+		
+	slider.insert("g", ".track-overlay")
+	.attr("class", "ticks")
+	.attr("transform", "translate(0, 15)")
+	.selectAll("text")
+	.data(slideScale.ticks(2))
+	.enter()
+	.append("text")
+	.attr("x", slideScale)
+	.attr("y", 10)
+	.attr("text-anchor", "middle")
+	.text(function(d) {
+	return tickValues[d];
+	});
+
+	var handle = slider.append('circle')
+        .classed('handle', true)
+        .attr('r', 8);
+
+    var trackOverlay = d3.select(slider.node().appendChild(track.node().cloneNode()))
+		.attr('class', "track-overlay").call(drag);
+	
+	function dragged(value) {
+        var x = slideScale.invert(value),
+            index = null,
+            midPoint, cx, xVal;
+        for (var i = 0; i < rangeValues.length - 1; i++) {
+            if (x >= rangeValues[i] && x <= rangeValues[i + 1]) {
+                index = i;
+                break;
+            }
+        }
+        midPoint = (rangeValues[index] + rangeValues[index + 1]) / 2;
+        var foundIndex = 0
+        if (x < midPoint) {
+            foundIndex = index;
+        } else {
+            foundIndex = index + 1;
+        }
+
+        cx = slideScale(rangeValues[foundIndex]);
+        xVal = rangeValues[foundIndex];
+
+        handle.attr('cx', cx);
+		d3.selectAll("svg > g > :not(.slider)").remove();
+        uStates.draw("#statesvg", sampleData, tooltipHtml, yearData[tickValues[foundIndex]],"#barsvg");
+    }
+
+
+});
+	d3.select(self.frameElement).style("height", "700px"); 
+</script>
 </body>
