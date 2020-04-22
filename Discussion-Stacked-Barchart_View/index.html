@@ -65,21 +65,17 @@
 
 function generateGraphic(dataset){
 
-			console.log(dataset);
-
 			// Demonstration dataset; will be replaced by processed json data
-			var dataset = [
-				{ willing: 490, maybe: 477, not_willing: 292, factor_id: "mental_health_consequence", factor: "Baseline; no factors selected"},
-				{ willing: 4, maybe: 12, not_willing: 28, factor_id: "wellness_program", factor: "Discussion of mental health as part of an employee wellness program"},
-				{ willing: 8, maybe: 20, not_willing: 35, factor_id: "seek_help", factor: "Resources to learn about mental health & seek help provided"},
-				{ willing: 2, maybe: 19, not_willing: 32, factor_id: "care_options", factor: "Knowledge of provided mental health care options"},
-				{ willing: 7, maybe: 23, not_willing: 35, factor_id: "leave", factor: "Availability of sick leave is easy"},
-				{ willing: 23, maybe: 17, not_willing: 43, factor_id: "anonymity", factor: "Anonymity"},
-				{ willing: 23, maybe: 17, not_willing: 43, factor_id: "phys_health_consequence", factor: "No negative consequence discussing physical health issues w/ employer"},
-				{ willing: 23, maybe: 17, not_willing: 43, factor_id: "benefits", factor: "Mental health benefits provided by employer"}
-			];
-
-			console.log(dataset);
+			// var dataset = [
+			// 	{ willing: 490, maybe: 477, not_willing: 292, factor_id: "mental_health_consequence", factor: "Baseline; no factors selected"},
+			// 	{ willing: 4, maybe: 12, not_willing: 28, factor_id: "wellness_program", factor: "Discussion of mental health as part of an employee wellness program"},
+			// 	{ willing: 8, maybe: 20, not_willing: 35, factor_id: "seek_help", factor: "Resources to learn about mental health & seek help provided"},
+			// 	{ willing: 2, maybe: 19, not_willing: 32, factor_id: "care_options", factor: "Knowledge of provided mental health care options"},
+			// 	{ willing: 7, maybe: 23, not_willing: 35, factor_id: "leave", factor: "Availability of sick leave is easy"},
+			// 	{ willing: 23, maybe: 17, not_willing: 43, factor_id: "anonymity", factor: "Anonymity"},
+			// 	{ willing: 23, maybe: 17, not_willing: 43, factor_id: "phys_health_consequence", factor: "No negative consequence discussing physical health issues w/ employer"},
+			// 	{ willing: 23, maybe: 17, not_willing: 43, factor_id: "benefits", factor: "Mental health benefits provided by employer"}
+			// ];
 
 			// Set dimensions
 			var w = 600;
@@ -107,12 +103,10 @@ function generateGraphic(dataset){
 					}
 					output[item] = obj;
 				}
-				console.log(output);
 				return output;
 			};
 
-			dataset = toPercent(dataset, ["willing", "maybe", "not_willing"]);
-			console.log(dataset);
+			datasetPercent = toPercent(dataset, ["willing", "maybe", "not_willing"]);
 
 			//Data, stacked
 			var series = stack(toPercent(dataset, ["willing", "maybe", "not_willing"]));
@@ -123,19 +117,18 @@ function generateGraphic(dataset){
 				])
 				.range([0, w]);
 
-			console.log(xScale(100));
 			var yScale = d3.scaleBand()
-				.domain(d3.range(dataset.length))
+				.domain(d3.range(datasetPercent.length))
 				.range([0, h])
 				.paddingInner(0.2);
 				
 			// Set up colors
-			var colors = d3.scaleOrdinal(dataset).range(["#B1F68A", "#FFFC80", "#FD97AC"]);
+			var colors = d3.scaleOrdinal(datasetPercent).range(["#B1F68A", "#FFFC80", "#FD97AC"]);
 		
 			//Create SVG element
 			var svg = d3.select("body")
 						.append("svg")
-						.attr("width", w + leftMargin)
+						.attr("width", w + leftMargin + wordLength)
 						.attr("height", h + topMargin + bottomMargin);
 
 			// Chart Title
@@ -180,8 +173,8 @@ function generateGraphic(dataset){
 
 			// Create feature labels (y axis)
 			var scale = d3.scaleOrdinal()
-                .domain([d3.min(dataset), d3.max(dataset)])
-                .range(Array.from({length: dataset.length},(v,k)=> yScale(k) + 5));
+                .domain([d3.min(datasetPercent), d3.max(datasetPercent)])
+                .range(Array.from({length: datasetPercent.length},(v,k)=> yScale(k) + 5));
 
             var y_axis = d3.axisLeft()
                   .scale(scale);
@@ -231,7 +224,6 @@ function generateGraphic(dataset){
 					return yScale(i);
 				})
 				.attr("x", function(d) {
-					console.log(d);
 					return xScale(d[0]);
 				})
 				.transition()
