@@ -55,8 +55,11 @@
 						care_options: ["Yes", "TRUE"], 
 						leave: ["Very easy", "Somewhat easy"], 
 						anonymity: ["Yes", "TRUE"], 
-						phys_health_consequence:["No", "FALSE"], 
+						phys_health_consequence:["No", "FALSE"],
+						phys_health_importance: ["7.0", "8.0", "9.0", "10.0"],
+						mental_health_importance: ["7.0", "8.0", "9.0", "10.0"],
 						benefits: ["Yes", "TRUE"]};
+
 						factor_descr = {mental_health_consequence: "Baseline; no factors selected",
 						wellness_program: "Discussion of mental health as part of an employee wellness program",
 						seek_help: "Resources to learn about mental health & seek help provided",
@@ -64,12 +67,14 @@
 						leave: "Availability of sick leave is easy",
 						anonymity: "Anonymity",
 						phys_health_consequence: "No negative consequence discussing physical health issues w/ employer",
+						phys_health_importance: "High importance placed on physical health (>= 7/10 rating)",
+						mental_health_importance: "High importance placed on mental health (>= 7/10 rating)",
 						benefits: "Mental health benefits provided by employer"}
 						for(factor of factors){
 							if(counts[factor] == undefined){
 								counts[factor] = {willing: 0, maybe: 0, not_willing: 0, factorID: factor, factor: factor_descr[factor]}
 							}
-							if(pos_values[factor].includes(data[i][factor])){
+							if(pos_values[factor] != undefined and pos_values[factor].includes(data[i][factor])){
 								switch(data[i].mental_health_consequence){
 									case "No":
 									counts[factor].willing += 1;
