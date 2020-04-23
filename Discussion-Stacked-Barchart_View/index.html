@@ -74,8 +74,24 @@
 							if(counts[factor] == undefined){
 								counts[factor] = {willing: 0, maybe: 0, not_willing: 0, factorID: factor, factor: factor_descr[factor]}
 							}
-							if(pos_values[factor] != undefined and pos_values[factor].includes(data[i][factor])){
-								switch(data[i].mental_health_consequence){
+							if(pos_values[factor] != undefined && pos_values[factor].includes(data[i][factor])){
+								// The 2019 dataset asks for comfort talking to supervisor instead of perceived consequences
+								if(index == 2){
+									switch(data[i].mental_health_consequence){
+									case "Yes":
+									counts[factor].willing += 1;
+									break;
+									case "Maybe":
+									counts[factor].maybe += 1;
+									break;
+									case "No":
+									counts[factor].not_willing += 1;
+									default:
+									break;
+								}
+								}
+								else{
+									switch(data[i].mental_health_consequence){
 									case "No":
 									counts[factor].willing += 1;
 									break;
@@ -86,6 +102,7 @@
 									counts[factor].not_willing += 1;
 									default:
 									break;
+								}
 								}
 							}
 						}
