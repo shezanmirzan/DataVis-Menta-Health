@@ -1,11 +1,3 @@
-/*
- * script.js
- * Copyright (C) 2020 Jay Panchal <jpanchal@umass.edu>
- *
- * Distributed under terms of the MIT license.
- */
-// TODO: Fix legend overlap on bars
-// TODO: Fix y-axis redrawing to variable scale to fixed max scale across years
 var margin = {
         top: 20,
         right: 20,
@@ -33,28 +25,48 @@ var yAxis = d3.svg.axis()
     .orient("left");
 
 var color = d3.scale.ordinal()
-    .range(["green", "red"]);
+    .range(["green", "red","yellow"]);
 
-var svg = d3.select('body').append("svg")
+var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+//SVG for slider
+var svgSlider = d3.select("body").append("svg")
+    .attr("width", 100)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left+"," + margin.top + ")");
 
+var svgImage = d3.select("body").append("svg")
+    .attr("width", 400)//width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left +"," + margin.top + ")");
+
+var foundIndex = 0
+var curDrop = "Mental";
+var curDropIndex = 0;
 d3.json("data.json", function(error, yearData) {
-    drawChart(yearData[2016]);
+    console.log(yearData[2014][0])
+    drawChart(yearData[2014][curDropIndex][curDrop]);
+
 
     // SLIDER
-    var slider = svg.append('g')
+    var slider = svgSlider.append('g')
         .classed('slider', true)
-        .attr('transform', "translate(" + (margin.left - 10) + ", " + (height + margin.bottom - 30) + ")");
+        //.attr('transform', "translate(" + (margin.left-10) + ", " + (height + margin.bottom - 30) + ")", "rotate(-90)");
+        //.attr('transform', "translate(" + (width + margin.left - 300) + ")",  "rotate(90)");
+        .attr('transform', "rotate(90)","translate(" + (width + margin.left +300)+")");
 
     var slideScale = d3.scale.linear()
-        .domain([0, 1])
-        .range([0, width - margin.left - margin.right])
+        .domain([0, 2])
+        //.range([0, width - margin.left - margin.right])
+        .range([0, height - margin.top - margin.bottom+50])
         .clamp(true);
 
-    var rangeValues = [0, 1];
+    var rangeValues = [0, 1, 2];
 
     slideScale.clamp(true);
 
@@ -69,7 +81,7 @@ d3.json("data.json", function(error, yearData) {
         .attr('x1', slideScale.range()[0])
         .attr('x2', slideScale.range()[1]);
 
-    var tickValues = [2016, 2019];
+    var tickValues = [2014, 2016, 2019];
 
     slider.insert("g", ".track-overlay")
         .attr("class", "ticks")
@@ -92,6 +104,8 @@ d3.json("data.json", function(error, yearData) {
     var trackOverlay = d3.select(slider.node().appendChild(track.node().cloneNode()))
         .attr('class', "track-overlay").call(drag);
 
+    
+
     function dragged(value) {
         var x = slideScale.invert(value),
             index = null,
@@ -103,7 +117,7 @@ d3.json("data.json", function(error, yearData) {
             }
         }
         midPoint = (rangeValues[index] + rangeValues[index + 1]) / 2;
-        var foundIndex = 0
+        foundIndex = 0
         if (x < midPoint) {
             foundIndex = index;
         } else {
@@ -115,12 +129,82 @@ d3.json("data.json", function(error, yearData) {
 
         handle.attr('cx', cx);
         d3.selectAll("svg > g > :not(.slider)").remove();
-        drawChart(yearData[tickValues[foundIndex]]);
+        console.log(foundIndex);
+
+
+    
+
+        drawChart(yearData[tickValues[foundIndex]][curDropIndex][curDrop]);
+
     }
+
+
+     //Dropdown
+    //Ation on selection
+    var dropdownChange = function() {
+        curDrop = d3.select(this).property('value');
+        console.log(curDrop)
+        if (curDrop=="Physical") {
+            curDropIndex=1;
+        }
+        if (curDrop=="Mental") {
+            curDropIndex=0;
+        }
+            var newData   = yearData[tickValues[foundIndex]][curDropIndex];
+           console.log(tickValues[foundIndex])
+            //d3.selectAll("svg > g > :not(.dropdown)").remove();
+            svg.selectAll("svg > g > :not(.dropdown)").remove();
+            drawChart(newData[curDrop]);
+    };
+    //Option for drop down menu
+    var menu = ["Mental", "Physical"];
+    //Make drop down
+    var dropdown = d3.select("body")
+                    .insert("select", "svg")
+                    .on("change", dropdownChange);
+                
+    dropdown.selectAll("option")
+            .data(menu)
+            .enter().append("option")
+            .attr("value", function (d) { return d; })
+            .text(function (d) {
+                 return d//d[0].toUpperCase() + d.slice(1,d.length); // capitalize 1st letter
+                    }); 
+
 });
+function changeImage(){
+
+    svgImage.selectAll("svg > g").remove();
+    var filename = "None"
+    console.log(foundIndex)
+    console.log(curDrop)
+    if(foundIndex==0 && curDropIndex==0){
+        filename="hmap00.png"}
+    if(foundIndex==0 && curDropIndex==1){
+        filename="hmap01.png"}
+    if(foundIndex==1 && curDropIndex==0){
+        filename="hmap10.png"}
+    if(foundIndex==1 && curDropIndex==1){
+        filename="hmap11.png"}
+    if(foundIndex==2 && curDropIndex==0){
+        filename="hmap20.png"}
+    if(foundIndex==2 && curDropIndex==1){
+        filename="hmap21.png"}
+    
+    myimg = svgImage.append('image')
+        .attr('xlink:href', filename)
+        .attr('width', 300)
+        .attr('height', 300)
+    }
 
 function drawChart(data) {
+
+    changeImage();
+    //Change Image
+
+    console.log(data)
     var categoriesNames = data.map(function(d) {
+        console.log(d.categorie)
         return d.categorie;
     });
     var rateNames = data[0].values.map(function(d) {
@@ -145,6 +229,24 @@ function drawChart(data) {
         .style('opacity', '1')
         .call(yAxis)
 
+    //label x axis
+    svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text("Anonymity Status")
+      .style("font-weight","bold");
+
+    //label y-axis    
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x",0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("No of people")
+        .style("font-weight","bold"); 
     // svg.select('.y').transition().duration(500).delay(1300).style('opacity','1');
 
     var slice = svg.selectAll(".slice")
@@ -155,7 +257,6 @@ function drawChart(data) {
             return "translate(" + x0(d.categorie) + ",0)";
         });
 
-    // BARS
     slice.selectAll("rect")
         .data(function(d) {
             return d.values;
@@ -179,19 +280,9 @@ function drawChart(data) {
         })
         .on("mouseover", function(d) {
             d3.select(this).style("fill", d3.rgb(color(d.rate)).darker(2));
-            tooltip.style("display", "inline");
         })
         .on("mouseout", function(d) {
             d3.select(this).style("fill", color(d.rate));
-            tooltip.style("display", "none");
-        })
-        .on("mousemove", function(d) {
-            var transform = d3.select(this.parentElement).attr("transform");
-            var translate = d3.transform(transform).translate;
-            var xPosition = translate[0] + d3.mouse(this)[0] - 15;
-            var yPosition = translate[1] + d3.mouse(this)[1] - 25;
-            tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-            tooltip.select("text").text(d.value);
         });
 
     slice.selectAll("rect")
@@ -207,24 +298,6 @@ function drawChart(data) {
             return height - y(d.value);
         });
 
-    // TOOLTIP
-    var tooltip = svg.append("g")
-        .attr("class", "tooltip")
-        .style("display", "none");
-        
-    tooltip.append("rect")
-        .attr("width", 30)
-        .attr("height", 20)
-        .attr("fill", "white")
-        .style("opacity", 0.5);
-    
-    tooltip.append("text")
-        .attr("x", 15)
-        .attr("dy", "1.2em")
-        .style("text-anchor", "middle")
-        .attr("font-size", "12px")
-        .attr("font-weight", "bold");
-
     // LEGEND
     var legend = svg.selectAll(".legend")
         .data(data[0].values.map(function(d) {
@@ -233,9 +306,10 @@ function drawChart(data) {
         .enter().append("g")
         .attr("class", "legend")
         .attr("transform", function(d, i) {
-            return "translate(0," + i * 20 + ")";
+            return "translate(0," + i *20 + ")";
         })
-        .style("opacity", "1");
+        .style("opacity", "1")
+        .style("font-weight","bold");
 
     legend.append("rect")
         .attr("x", width - 18)
