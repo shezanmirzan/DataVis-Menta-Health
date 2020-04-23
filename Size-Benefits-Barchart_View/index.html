@@ -24,6 +24,24 @@
   .y .tick line {
     stroke: #ddd;
   }
+  .track,
+	.track-overlay {
+		stroke-linecap: round;
+	}
+
+	.track {
+		stroke: #000;
+		stroke-opacity: 0.3;
+		stroke-width: 10px;
+	}
+
+	.handle {
+		cursor: grab;
+		fill: #fff;
+		stroke: #000;
+		stroke-opacity: 0.5;
+		stroke-width: 1.25px;
+	}
   </style>
 
 </head>
@@ -31,10 +49,10 @@
 <script type="text/javascript">
 
 // Setup svg using Bostock's margin convention
-var margin = {top: 30, right: 160, bottom: 35, left: 50};
+var margin = {top: 50, right: 100, bottom: 50, left: 50};//Changed bottom from 35 to 50
 
 var width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 500 - margin.top - margin.bottom; //420
 
 var svg = d3.select("body")
   .append("svg")
@@ -53,23 +71,22 @@ var svg = d3.select("body")
         .attr("transform", "translate(" + margin.left + "," + 0 + ")");
 
 //Subtitles
+//Y Label
 svg.append("text")
-	.attr("x", -175)             
-	.attr("y", -30)
+  .attr("x",(margin.top - (height/2)-20))            
+  .attr("y",margin.left-80)
 	.attr("text-anchor", "middle")  
 	.style("font-size", "16px") 
 	.text("Number of Companies")
-	.attr("transform", "translate(" + (130/ 2 + margin.left) + ", " + margin.top + ")")
   .attr("transform", function(d) {
      return "rotate(-90)" 
     });
-        
+//X Label        
 svg.append("text")
 	.attr("x", ((width + margin.left) / 2)- 100)             
-	.attr("y", 430)  
+	.attr("y", height - margin.bottom + 35)  
 	.style("font-size", "16px") 
 	.text("Number of Employees")
-	.attr("transform", "translate(" + 0 + ", " + margin.bottom + ")")
 //Dataset with accurate values
 var data_2014 = [
   { no: "74", yes: "101",employees: "26 - 100" }, 
@@ -102,11 +119,11 @@ var dataset = d3.layout.stack()(["yes", "no"].map(function(benefits) {
 //Create Scale
 var x = d3.scale.ordinal()
   .domain(dataset[0].map(function(d) { return d.x; }))
-  .rangeRoundBands([10, width-10], 0.55); //Orignally was .02
+  .rangeRoundBands([10, width-50], 0.60); 
 
 var y = d3.scale.linear()
   .domain([0,300])
-  .range([height, 0]);
+  .range([height- 50, 0]);
 
 //Set the color
 var colors = ["77ab59","b33040"];
@@ -121,7 +138,7 @@ var yAxis = d3.svg.axis()
 
 var xAxis = d3.svg.axis()
   .scale(x)
-  .orient("bottom")
+  //.orient("bottom")
   .tickFormat( function(d) { return d} ); 
 
 svg.append("g")
@@ -130,7 +147,7 @@ svg.append("g")
 
 svg.append("g")
   .attr("class", "x axis")
-  .attr("transform", "translate(0," + height + ")")
+  .attr("transform", "translate(0," + (height-margin.bottom)+")")
   .call(xAxis);
 
 
@@ -183,7 +200,6 @@ legend.append("text")
       case 1: return "Benefits";
     }
   });
-
 // Prep the tooltip bits, initial display is hidden
 var tooltip = svg.append("g")
   .attr("class", "tooltip")
@@ -201,6 +217,95 @@ tooltip.append("text")
   .style("text-anchor", "middle")
   .attr("font-size", "12px")
   .attr("font-weight", "bold");
+
+//Slider code
+var slider = svg.append('g')
+			.classed('slider', true)
+      .attr("x", 130 - 5  + margin.left)
+    	.attr("y", margin.top+height + 50)
+
+ 			var slideScale = d3.scaleLinear()
+ 			.domain([0, 2]) 
+ 			.range([0, width]) 
+			.clamp(true);
+
+ 			var rangeValues = [0, 1, 2];
+
+			slideScale.clamp(true);
+
+			var drag = d3.drag();
+			drag.subject(Object)
+			.on("drag", function() {
+				dragged(d3.mouse(this)['0']);
+			});
+
+			var track = slider.append('line')
+			.attr("class", "track")
+			.attr('x1', slideScale.range()[0])
+			.attr('x2', slideScale.range()[1])
+			.attr("stroke-width", 5);
+
+			var tickValues = [2014, 2016, 2019];
+
+			slider.insert("g", ".track-overlay")
+			.attr("class", "ticks")
+			.attr("transform", "translate(0, 15)")
+			.selectAll("text")
+			.data(slideScale.ticks(2))
+			.enter()
+			.append("text")
+			.attr("x", slideScale)
+			.attr("y", 10)
+			.attr("text-anchor", "middle")
+			.text(function(d) {
+				return tickValues[d];
+			});
+
+			var handle = slider.append('circle')
+			.classed('handle', true)
+			.attr('r', 8)
+			.attr("cx", sliderPos * (width / 2))
+			.call(drag.on("drag", function() {
+				dragged(d3.mouse(this)['0']);
+			}))
+			.call(drag.on("end", function() {
+				release(d3.mouse(this)['0']);
+			}));
+
+
+			function dragged(value) {
+				var x = slideScale.invert(value),
+				index = null,
+				midPoint, cx, xVal;
+				for (var i = 0; i < rangeValues.length - 1; i++) {
+					if (x >= rangeValues[i] && x <= rangeValues[i + 1]) {
+						index = i;
+						break;
+					}
+				}
+				midPoint = (rangeValues[index] + rangeValues[index + 1]) / 2;
+				var foundIndex = 0
+				if (x < midPoint) {
+					foundIndex = index;
+				} else {
+					foundIndex = index + 1;
+				}
+
+				cx = slideScale(rangeValues[foundIndex]);
+				xVal = rangeValues[foundIndex];
+
+				handle.attr('cx', cx);
+			}
+
+			function release(value){
+				var sliderPos = Math.round(value / (width / 2));
+				if(sliderPos < 0){ sliderPos = 0 }
+					if(sliderPos > 2){ sliderPos = 2 }
+						console.log(sliderPos);
+					d3.selectAll("body").selectAll("*").remove();
+					generateGraphic(
+						sorted?JSON.parse(JSON.stringify(datasets[sliderPos])).sort(compareFactors):datasets[sliderPos], sliderPos, sorted);
+				}
 
 </script>
 </body>
