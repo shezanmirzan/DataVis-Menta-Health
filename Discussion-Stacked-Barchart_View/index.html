@@ -16,52 +16,62 @@
 
 			// Pull data from the csv files
 
-			dataset = []
+			datasets = []
+			var datasetNames = ["https://shezanmirzan.github.io/DataVis-Mental-Health/Discussion-Stacked-Barchart_View/2014-data.csv", "https://shezanmirzan.github.io/DataVis-Mental-Health/Discussion-Stacked-Barchart_View/2016-data.csv", "https://shezanmirzan.github.io/DataVis-Mental-Health/Discussion-Stacked-Barchart_View/2019-data.csv"];
 
-			var data_2014 = d3.csv("https://shezanmirzan.github.io/DataVis-Mental-Health/Discussion-Stacked-Barchart_View/2014-data.csv", function(data) {
+			loadData(datasetNames, 0, 2);
+
+			function loadData(fileNames, index, maxFileCt){
+				var data = d3.csv(fileNames[index], function(data) {
 				counts = [];
-			    for (var i = 0; i < data.length; i++) {
-			    	factors = ["mental_health_consequence", "wellness_program", "seek_help", "care_options", "leave", "anonymity", "phys_health_consequence", "benefits"];
-			    	pos_values = {mental_health_consequence: ["Yes", "Maybe", "No"],
-			    		wellness_program: ["Yes", "TRUE"], 
-			    		seek_help: ["Yes", "TRUE"], 
-			    		care_options: ["Yes", "TRUE"], 
-			    		leave: ["Very easy", "Somewhat easy"], 
-			    		anonymity: ["Yes", "TRUE"], 
-			    		phys_health_consequence:["No", "FALSE"], 
-			    		benefits: ["Yes", "TRUE"]};
-			    	factor_descr = {mental_health_consequence: "Baseline; no factors selected",
-				    	wellness_program: "Discussion of mental health as part of an employee wellness program",
-				    	seek_help: "Resources to learn about mental health & seek help provided",
-				    	care_options: "Knowledge of provided mental health care options",
-				    	leave: "Availability of sick leave is easy",
-				    	anonymity: "Anonymity",
-				    	phys_health_consequence: "No negative consequence discussing physical health issues w/ employer",
-				    	benefits: "Mental health benefits provided by employer"}
-			    	for(factor of factors){
-			    		if(counts[factor] == undefined){
+				for (var i = 0; i < data.length; i++) {
+					factors = ["mental_health_consequence", "wellness_program", "seek_help", "care_options", "leave", "anonymity", "phys_health_consequence", "benefits"];
+					pos_values = {mental_health_consequence: ["Yes", "Maybe", "No"],
+					wellness_program: ["Yes", "TRUE"], 
+					seek_help: ["Yes", "TRUE"], 
+					care_options: ["Yes", "TRUE"], 
+					leave: ["Very easy", "Somewhat easy"], 
+					anonymity: ["Yes", "TRUE"], 
+					phys_health_consequence:["No", "FALSE"], 
+					benefits: ["Yes", "TRUE"]};
+					factor_descr = {mental_health_consequence: "Baseline; no factors selected",
+					wellness_program: "Discussion of mental health as part of an employee wellness program",
+					seek_help: "Resources to learn about mental health & seek help provided",
+					care_options: "Knowledge of provided mental health care options",
+					leave: "Availability of sick leave is easy",
+					anonymity: "Anonymity",
+					phys_health_consequence: "No negative consequence discussing physical health issues w/ employer",
+					benefits: "Mental health benefits provided by employer"}
+					for(factor of factors){
+						if(counts[factor] == undefined){
 							counts[factor] = {willing: 0, maybe: 0, not_willing: 0, factor_id: factor, factor: factor_descr[factor]}
-			    		}
-			    		if(pos_values[factor].includes(data[i][factor])){
-			    			switch(data[i].mental_health_consequence){
-			    			case "No":
-			    				counts[factor].willing += 1;
-			    				break;
-			    			case "Maybe":
-			    				counts[factor].maybe += 1;
-			    				break;
-			    			case "Yes":
-			    				counts[factor].not_willing += 1;
-			    			default:
-			    				break;
-			    		}
-			    		}
-			    	}
-			    }
-			    dataset = Object.values(counts);
+						}
+						if(pos_values[factor].includes(data[i][factor])){
+							switch(data[i].mental_health_consequence){
+								case "No":
+								counts[factor].willing += 1;
+								break;
+								case "Maybe":
+								counts[factor].maybe += 1;
+								break;
+								case "Yes":
+								counts[factor].not_willing += 1;
+								default:
+								break;
+							}
+						}
+					}
+				}
+			    datasets[index]= Object.values(counts);
 
-			    generateGraphic(dataset);
+			    if (index < maxFileCt){
+			    	loadData(fileNames, index + 1, maxFileCt);
+			    }
+			    else{
+			    	generateGraphic(datasets[index]);
+			    }
 			});
+			}
 
 function generateGraphic(dataset){
 
@@ -76,6 +86,14 @@ function generateGraphic(dataset){
 			// 	{ willing: 23, maybe: 17, not_willing: 43, factor_id: "phys_health_consequence", factor: "No negative consequence discussing physical health issues w/ employer"},
 			// 	{ willing: 23, maybe: 17, not_willing: 43, factor_id: "benefits", factor: "Mental health benefits provided by employer"}
 			// ];
+
+			// Clean empty dataset values
+			for(i = 0; i < dataset.length; i++){
+				if(dataset[i].willing + dataset[i].maybe + dataset[i].not_willing == 0){
+					dataset.pop(i);
+					i--;
+				}
+			}
 
 			// Set dimensions
 			var w = 600;
