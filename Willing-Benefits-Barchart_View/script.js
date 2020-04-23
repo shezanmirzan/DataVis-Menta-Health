@@ -42,7 +42,7 @@ var svg = d3.select('body').append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.json("data.json", function(error, yearData) {
-    drawChart(yearData[2014]);
+    drawChart(yearData[2016]);
 
     // SLIDER
     var slider = svg.append('g')
@@ -50,11 +50,11 @@ d3.json("data.json", function(error, yearData) {
         .attr('transform', "translate(" + (margin.left - 10) + ", " + (height + margin.bottom - 30) + ")");
 
     var slideScale = d3.scale.linear()
-        .domain([0, 2])
+        .domain([0, 1])
         .range([0, width - margin.left - margin.right])
         .clamp(true);
 
-    var rangeValues = [0, 1, 2];
+    var rangeValues = [0, 1];
 
     slideScale.clamp(true);
 
@@ -69,7 +69,7 @@ d3.json("data.json", function(error, yearData) {
         .attr('x1', slideScale.range()[0])
         .attr('x2', slideScale.range()[1]);
 
-    var tickValues = [2014, 2016, 2019];
+    var tickValues = [2016, 2019];
 
     slider.insert("g", ".track-overlay")
         .attr("class", "ticks")

@@ -1,78 +1,52 @@
 {
-    "2014": [{
-        "categorie": "willing to talk", 
-        "values": [
-            {
-                "value": 50, 
-                "rate": "company provides mental health benefits"
-            }, 
-            {
-                "value": 40, 
-                "rate": "no mental health benefits by company"
-            }        
-        ]
-    }, 
-    {
-        "categorie": "not willing to talk", 
-        "values": [
-            {
-                "value": 20, 
-                "rate": "company provides mental health benefits"
-            }, 
-            {
-                "value": 10, 
-                "rate": "no mental health benefits by company"
-            }        
-        ]
-    }],
     "2016": [{
-        "categorie": "willing to talk", 
+        "categorie": "% willing to talk", 
         "values": [
             {
-                "value": 10, 
+                "value": 79, 
                 "rate": "company provides mental health benefits"
             }, 
             {
-                "value": 30, 
+                "value": 21, 
                 "rate": "no mental health benefits by company"
             }        
         ]
     }, 
     {
-        "categorie": "not willing to talk", 
+        "categorie": "% not willing to talk", 
         "values": [
             {
-                "value": 40, 
+                "value": 60, 
                 "rate": "company provides mental health benefits"
             }, 
             {
-                "value": 10, 
+                "value": 40, 
                 "rate": "no mental health benefits by company"
             }        
         ]
     }],
     "2019": [{
-        "categorie": "willing to talk", 
+        "categorie": "% willing to talk", 
         "values": [
             {
-                "value": 30, 
+                "value": 90, 
                 "rate": "company provides mental health benefits"
             }, 
             {
-                "value": 40, 
+                "value": 10, 
                 "rate": "no mental health benefits by company"
             }        
         ]
     }, 
     {
-        "categorie": "not willing to talk", 
+        "categorie": "% not willing to talk", 
         "values": [
             {
-                "value": 50, 
+                "value": 73, 
                 "rate": "company provides mental health benefits"
             }, 
             {
-                "value": 20, 
+                "value": 27, 
                 "rate": "no mental health benefits by company"
             }        
         ]
