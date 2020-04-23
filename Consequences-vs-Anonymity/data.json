@@ -1,0 +1,331 @@
+{
+    "2014": [    
+        {
+            "Mental": [{
+                    "categorie": "Anonymity Protected", 
+                    "values": [{
+                            "value": 50, 
+                            "rate": "No negative consequences"
+                        }, 
+                        {
+                            "value": 40, 
+                            "rate": "Has negative consequences"
+                        },
+                        {
+                            "value": 40, 
+                            "rate": "May have negative consequences"
+                        }
+
+
+                ]}, 
+                {
+                    "categorie": "Anonymity Not Protected", 
+                    "values": [{
+                            "value": 20, 
+                            "rate": "No negative consequences"
+                        }, 
+                        {
+                            "value": 10, 
+                            "rate": "Has negative consequences"
+                        },
+                        {
+                            "value": 40, 
+                            "rate": "May have negative consequences"
+                        }
+                    
+                    ]
+                },
+                {
+                    "categorie": "Anonymity Maybe Protected", 
+                    "values": [{
+                            "value": 50, 
+                            "rate": "No negative consequences"
+                        }, 
+                        {
+                            "value": 40, 
+                            "rate": "Has negative consequences"
+                        },
+                        {
+                            "value": 40, 
+                            "rate": "May have negative consequences"
+                        }
+
+
+                ]}
+            
+            
+            
+            
+            ]
+
+
+        },
+        {
+            "Physical": [{
+                    "categorie": "Anonymity Protected", 
+                    "values": [{
+                            "value": 80, 
+                            "rate": "No negative consequences"
+                        }, 
+                        {
+                            "value": 10, 
+                            "rate": "Has negative consequences"
+                        },
+                        {
+                            "value": 40, 
+                            "rate": "May have negative consequences"
+                        }       
+                ]}, 
+                {
+                    "categorie": "Anonymity Not Protected", 
+                    "values": [{
+                            "value": 10, 
+                            "rate": "No negative consequences"
+                        }, 
+                        {
+                            "value": 30, 
+                            "rate": "Has negative consequences"
+                        },
+                        {
+                            "value": 40, 
+                            "rate": "May have negative consequences"
+                        }
+                    ]
+                },
+                {
+                    "categorie": "Anonymity Maybe Protected", 
+                    "values": [{
+                            "value": 50, 
+                            "rate": "No negative consequences"
+                        }, 
+                        {
+                            "value": 40, 
+                            "rate": "Has negative consequences"
+                        },
+                        {
+                            "value": 40, 
+                            "rate": "May have negative consequences"
+                        }
+
+
+                ]}
+            ]
+
+
+        }],
+        "2016": [    
+            {
+                "Mental": [{
+                        "categorie": "Anonymity Protected", 
+                        "values": [{
+                                "value": 173, 
+                                "rate": "No negative consequences"
+                            }, 
+                            {
+                                "value": 43, 
+                                "rate": "Has negative consequences"
+                            },
+                            {
+                                "value": 104, 
+                                "rate": "May have negative consequences"
+                            }        
+                    ]}, 
+                    {
+                        "categorie": "Anonymity Not Protected", 
+                        "values": [{
+                                "value": 29, 
+                                "rate": "No negative consequences"
+                            }, 
+                            {
+                                "value": 36, 
+                                "rate": "Has negative consequences"
+                            },
+                            {
+                                "value": 29, 
+                                "rate": "May have negative consequences"
+                            }
+                        ]
+                    },
+                    {
+                        "categorie": "Anonymity Maybe Protected", 
+                        "values": [{
+                                "value": 246, 
+                                "rate": "No negative consequences"
+                            }, 
+                            {
+                                "value": 142, 
+                                "rate": "Has negative consequences"
+                            },
+                            {
+                                "value": 354, 
+                                "rate": "May have negative consequences"
+                            }
+    
+    
+                    ]}
+                ]
+    
+    
+            },
+            {
+                "Physical": [{
+                        "categorie": "Anonymity Protected", 
+                        "values": [{
+                                "value": 254, 
+                                "rate": "No negative consequences"
+                            }, 
+                            {
+                                "value": 13, 
+                                "rate": "Has negative consequences"
+                            },
+                            {
+                                "value": 53, 
+                                "rate": "May have negative consequences"
+                            }        
+                    ]}, 
+                    {
+                        "categorie": "Anonymity Not Protected", 
+                        "values": [{
+                                "value": 50, 
+                                "rate": "No negative consequences"
+                            }, 
+                            {
+                                "value": 7, 
+                                "rate": "Has negative consequences"
+                            },
+                            {
+                                "value": 27, 
+                                "rate": "May have negative consequences"
+                            }
+                        ]
+                    },
+                    {
+                        "categorie": "Anonymity Maybe Protected", 
+                        "values": [{
+                                "value": 533, 
+                                "rate": "No negative consequences"
+                            }, 
+                            {
+                                "value": 21, 
+                                "rate": "Has negative consequences"
+                            },
+                            {
+                                "value": 188, 
+                                "rate": "May have negative consequences"
+                            }
+    
+    
+                    ]}
+                ]
+    
+    
+            }],
+            "2019": [    
+                {
+                    "Mental": [{
+                            "categorie": "Anonymity Protected", 
+                            "values": [{
+                                    "value": 90, 
+                                    "rate": "No negative consequences"
+                                }, 
+                                {
+                                    "value": 10, 
+                                    "rate": "Has negative consequences"
+                                },
+                                {
+                                    "value": 40, 
+                                    "rate": "May have negative consequences"
+                                }        
+                        ]}, 
+                        {
+                            "categorie": "Anonymity Not Protected", 
+                            "values": [{
+                                    "value": 20, 
+                                    "rate": "No negative consequences"
+                                }, 
+                                {
+                                    "value": 10, 
+                                    "rate": "Has negative consequences"
+                                },
+                                {
+                                    "value": 40, 
+                                    "rate": "May have negative consequences"
+                                }
+                            ]
+                        },
+                        {
+                            "categorie": "Anonymity Maybe Protected", 
+                            "values": [{
+                                    "value": 50, 
+                                    "rate": "No negative consequences"
+                                }, 
+                                {
+                                    "value": 40, 
+                                    "rate": "Has negative consequences"
+                                },
+                                {
+                                    "value": 40, 
+                                    "rate": "May have negative consequences"
+                                }
+        
+        
+                        ]}
+                    ]
+        
+        
+                },
+                {
+                    "Physical": [{
+                            "categorie": "Anonymity Protected", 
+                            "values": [{
+                                    "value": 30, 
+                                    "rate": "No negative consequences"
+                                }, 
+                                {
+                                    "value": 10, 
+                                    "rate": "Has negative consequences"
+                                },
+                                {
+                                    "value": 40, 
+                                    "rate": "May have negative consequences"
+                                }        
+                        ]}, 
+                        {
+                            "categorie": "Anonymity Not Protected", 
+                            "values": [{
+                                    "value": 50, 
+                                    "rate": "No negative consequences"
+                                }, 
+                                {
+                                    "value": 20, 
+                                    "rate": "Has negative consequences"
+                                },
+                                {
+                                    "value": 40, 
+                                    "rate": "May have negative consequences"
+                                }
+                            ]
+                        },
+                        {
+                            "categorie": "Anonymity Maybe Protected", 
+                            "values": [{
+                                    "value": 50, 
+                                    "rate": "No negative consequences"
+                                }, 
+                                {
+                                    "value": 40, 
+                                    "rate": "Has negative consequences"
+                                },
+                                {
+                                    "value": 40, 
+                                    "rate": "May have negative consequences"
+                                }
+        
+        
+                        ]}
+                    ]
+        
+        
+                }]
+
+}
