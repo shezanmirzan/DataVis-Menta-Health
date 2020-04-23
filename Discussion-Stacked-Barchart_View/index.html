@@ -48,7 +48,7 @@
 				var data = d3.csv(fileNames[index], function(data) {
 					counts = [];
 					for (var i = 0; i < data.length; i++) {
-						factors = ["mental_health_consequence", "wellness_program", "seek_help", "care_options", "leave", "anonymity", "phys_health_consequence", "benefits"];
+						factors = ["mental_health_consequence", "wellness_program", "seek_help", "care_options", "leave", "anonymity", "phys_health_consequence", "phys_health_importance", "mental_health_importance",  "benefits"];
 						pos_values = {mental_health_consequence: ["Yes", "Maybe", "No"],
 						wellness_program: ["Yes", "TRUE"], 
 						seek_help: ["Yes", "TRUE"], 
