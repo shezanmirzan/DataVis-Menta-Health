@@ -174,7 +174,7 @@ d3.json("data.json", function(error, yearData) {
 });
 function changeImage(){
 
-    svgImage.selectAll("svg > g").remove();
+    svgImage.selectAll("*").remove();
     var filename = "None"
     console.log(foundIndex)
     console.log(curDrop)
