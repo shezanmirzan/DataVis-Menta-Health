@@ -228,6 +228,7 @@ var slider = svg.append('g')
       .classed('slider', true)
       .attr("x", 130 - 5  + margin.left)
       .attr("y", margin.top+height + 50)
+	  .attr("transform", "translate(0,400)")
 
       var slideScale = d3.scale.linear()
       .domain([0, 2]) 
