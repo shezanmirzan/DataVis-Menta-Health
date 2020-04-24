@@ -42,7 +42,7 @@ var svg = d3.select('body').append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.json("data.json", function(error, yearData) {
-    drawChart(yearData[2014]);
+    drawChart(yearData[2016]);
 
     // SLIDER
     var slider = svg.append('g')
@@ -50,11 +50,11 @@ d3.json("data.json", function(error, yearData) {
         .attr('transform', "translate(" + (margin.left - 10) + ", " + (height + margin.bottom - 30) + ")");
 
     var slideScale = d3.scale.linear()
-        .domain([0, 2])
+        .domain([0, 1])
         .range([0, width - margin.left - margin.right])
         .clamp(true);
 
-    var rangeValues = [0, 1, 2];
+    var rangeValues = [0, 1];
 
     slideScale.clamp(true);
 
@@ -69,7 +69,7 @@ d3.json("data.json", function(error, yearData) {
         .attr('x1', slideScale.range()[0])
         .attr('x2', slideScale.range()[1]);
 
-    var tickValues = [2014, 2016, 2019];
+    var tickValues = [2016, 2019];
 
     slider.insert("g", ".track-overlay")
         .attr("class", "ticks")
@@ -91,7 +91,6 @@ d3.json("data.json", function(error, yearData) {
 
     var trackOverlay = d3.select(slider.node().appendChild(track.node().cloneNode()))
         .attr('class', "track-overlay").call(drag);
-
 
     function dragged(value) {
         var x = slideScale.invert(value),
@@ -156,6 +155,7 @@ function drawChart(data) {
             return "translate(" + x0(d.categorie) + ",0)";
         });
 
+    // BARS
     slice.selectAll("rect")
         .data(function(d) {
             return d.values;
@@ -179,9 +179,19 @@ function drawChart(data) {
         })
         .on("mouseover", function(d) {
             d3.select(this).style("fill", d3.rgb(color(d.rate)).darker(2));
+            tooltip.style("display", "inline");
         })
         .on("mouseout", function(d) {
             d3.select(this).style("fill", color(d.rate));
+            tooltip.style("display", "none");
+        })
+        .on("mousemove", function(d) {
+            var transform = d3.select(this.parentElement).attr("transform");
+            var translate = d3.transform(transform).translate;
+            var xPosition = translate[0] + d3.mouse(this)[0] - 15;
+            var yPosition = translate[1] + d3.mouse(this)[1] - 25;
+            tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+            tooltip.select("text").text(d.value);
         });
 
     slice.selectAll("rect")
@@ -196,6 +206,24 @@ function drawChart(data) {
         .attr("height", function(d) {
             return height - y(d.value);
         });
+
+    // TOOLTIP
+    var tooltip = svg.append("g")
+        .attr("class", "tooltip")
+        .style("display", "none");
+        
+    tooltip.append("rect")
+        .attr("width", 30)
+        .attr("height", 20)
+        .attr("fill", "white")
+        .style("opacity", 0.5);
+    
+    tooltip.append("text")
+        .attr("x", 15)
+        .attr("dy", "1.2em")
+        .style("text-anchor", "middle")
+        .attr("font-size", "12px")
+        .attr("font-weight", "bold");
 
     // LEGEND
     var legend = svg.selectAll(".legend")

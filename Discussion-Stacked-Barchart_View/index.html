@@ -501,7 +501,6 @@
 				var sliderPos = Math.round(value / (w / 2));
 				if(sliderPos < 0){ sliderPos = 0 }
 					if(sliderPos > 2){ sliderPos = 2 }
-						console.log(sliderPos);
 					d3.selectAll("body").selectAll("*").remove();
 					generateGraphic(
 						sorted?JSON.parse(JSON.stringify(datasets[sliderPos])).sort(compareFactors):datasets[sliderPos], sliderPos, sorted);
@@ -529,8 +528,6 @@
 			if(sorted){
 				document.getElementById("checkbox").checked = true;
 			}
-
-			console.log(sorted);
 
 			d3.select("#checkbox").on("change",updateChecked);
 			// updateChecked();
