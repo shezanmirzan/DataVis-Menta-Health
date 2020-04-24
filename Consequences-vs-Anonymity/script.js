@@ -179,13 +179,13 @@ function changeImage(){
     console.log(foundIndex)
     console.log(curDrop)
     if(foundIndex==0 && curDropIndex==0){
-        filename="hmap00.png"}
+        filename="2014-Mental.png"}
     if(foundIndex==0 && curDropIndex==1){
-        filename="hmap01.png"}
+        filename="2014-Physical.png"}
     if(foundIndex==1 && curDropIndex==0){
-        filename="hmap10.png"}
+        filename="2016-Mental.png"}
     if(foundIndex==1 && curDropIndex==1){
-        filename="hmap11.png"}
+        filename="2016-Physical.png"}
     if(foundIndex==2 && curDropIndex==0){
         filename="hmap20.png"}
     if(foundIndex==2 && curDropIndex==1){
