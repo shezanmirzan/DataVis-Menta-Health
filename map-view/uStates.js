@@ -96,7 +96,8 @@
         .style("fill",function(d){ 
             ct = curData.filter(function(s){ return s.State == d.id;})[0];
             console.log("Nidhi")
-            return d3.interpolate("#ffffcc", "#800026")(ct["total"]/100);
+            return d3.interpolate("#ffffcc", "#800026")(ct["total"]/100); 
+            //return d3.interpolate("#C6FCF7 ", "#4A7BF6 ")(ct["total"]/100);
         })
         .on("mouseover", mouseOver).on("mouseout", mouseOut);
 
@@ -113,7 +114,7 @@
             const arrSum = arr => arr.reduce((a,b) => a + b, 0)
 	        deno = arrSum(tF.map(function(d,i){ return tF[i].freq}));  
             ct = curData.filter(function(s){ return s.State == d.id;})[0];
-            return d3.interpolate("white", "black")(((ct["total"])*100/deno).toFixed(2)/10);
+            return d3.interpolate("white", "green")(((ct["total"])*100/deno).toFixed(2)/10);
         })
     // calculate total frequency by segment for all state.
     
