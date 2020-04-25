@@ -47,6 +47,15 @@
 </head>
 <body>
 <script type="text/javascript">
+var dataset_2014 = d3.csv("mental-health-in_tech-2014.csv");
+var dataset_2016 = d3.csv("mental-health-in-tech-2016.csv");
+var dataset_2019 = d3.csv("mental-health-in-tech-2016.csv");
+var datasets = [dataset_2014,dataset_2016,dataset_2019];
+for(data in datasets){
+	for(var i = 0; i < data.length;i++){
+		console.log(data[i].benefits);
+	}
+}
 
 //Dataset with accurate values
 var data_2014 = [
