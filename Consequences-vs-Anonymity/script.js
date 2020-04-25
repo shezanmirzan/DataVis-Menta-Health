@@ -36,6 +36,7 @@ var svg = d3.select("body").append("svg")
 var svgSlider = d3.select("body").append("svg")
     .attr("width", 100)
     .attr("height", height + margin.top + margin.bottom)
+    //.attr("height", 100)
     .append("g")
     .attr("transform", "translate(" + margin.left+"," + margin.top + ")");
 
@@ -161,6 +162,7 @@ d3.json("data.json", function(error, yearData) {
     //Make drop down
     var dropdown = d3.select("body")
                     .insert("select", "svg")
+                    .attr("style", "position:relative; left:" + (margin.left+300) + "px;")
                     .on("change", dropdownChange);
                 
     dropdown.selectAll("option")
