@@ -58,25 +58,37 @@ for(data in datasets){
 }
 
 //Dataset with accurate values
+var no_small_2014 = Math.round(74/(101+74) * 100);var yes_small_2014 = Math.round(101/(101+74) * 100);
+var no_med_2014 = Math.round(32/(32 + 79) * 100);var yes_med_2014 = Math.round(79/(32+79) * 100);
+var no_large_2014 = Math.round(4/(4+35) * 100);var yes_large_2014 = Math.round(35/(4+35) * 100);
+var no_v_large_2014 = Math.round(21/(21+183) * 100);var yes_v_large_2014 = Math.round(183/(21+183) * 100);
 var data_2014 = [
-  { no: "74", yes: "101",employees: "26 - 100" }, 
-  { no: "32", yes: "79",employees: "100 - 500" },
-  { no: "4", yes: "35", employees: "500 - 1000" },
-  { no: "21", yes: "183", employees: "More than 1000" },
+  { no: no_small_2014, yes: yes_small_2014,employees: "26 - 100" }, 
+  { no: no_med_2014, yes: yes_med_2014,employees: "100 - 500" },
+  { no: no_large_2014, yes: yes_large_2014, employees: "500 - 1000" },
+  { no: no_v_large_2014, yes: yes_v_large_2014, employees: "More than 1000" },
 ]
+var no_small_2016 = Math.round(53/(53+136) * 100);var yes_small_2016 = Math.round(136/(53+136) * 100);
+var no_med_2016 = Math.round(50/(50 + 127) * 100);var yes_med_2016 = Math.round(127/(50+127) * 100);
+var no_large_2016 = Math.round(9/(9+40) * 100);var yes_large_2016 = Math.round(40/(9+40) * 100);
+var no_v_large_2016 = Math.round(26/(26+158) * 100);var yes_v_large_2016 = Math.round(158/(26+158) * 100);
 
 var data_2016 = [
-  { no: "53", yes: "136",employees: "26 - 100" }, 
-  { no: "50", yes: "127",employees: "100 - 500" },
-  { no: "9", yes: "40", employees: "500 - 1000" },
-  { no: "26", yes: "158", employees: "More than 1000" },
+  { no: no_small_2016, yes: yes_small_2016,employees: "26 - 100" }, 
+  { no: no_med_2016, yes: yes_med_2016,employees: "100 - 500" },
+  { no: no_large_2016, yes: yes_large_2016, employees: "500 - 1000" },
+  { no: no_v_large_2016, yes: yes_v_large_2016, employees: "More than 1000" },
 ];
 
+var no_small_2019 = Math.round(3/(3+19) * 100);var yes_small_2019 = Math.round(19/(3+19) * 100);
+var no_med_2019 = Math.round(11/(11 + 37) * 100);var yes_med_2019 = Math.round(37/(11 + 37) * 100);
+var no_large_2019 = Math.round(2/(2 + 15) * 100);var yes_large_2019 = Math.round(15/(2 + 15) * 100);
+var no_v_large_2019 = Math.round(9/(9 + 69) * 100);var yes_v_large_2019 = Math.round(69/(9 + 69) * 100);
 var data_2019 = [
-  { no: "3", yes: "19",employees: "26 - 100" }, 
-  { no: "11", yes: "37",employees: "100 - 500" },
-  { no: "2", yes: "15", employees: "500 - 1000" },
-  { no: "9", yes: "69", employees: "More than 1000" },
+  { no: no_small_2019, yes: yes_small_2019,employees: "26 - 100" }, 
+  { no: no_med_2019, yes: yes_med_2019,employees: "100 - 500" },
+  { no: no_large_2019, yes: yes_large_2019, employees: "500 - 1000" },
+  { no: no_v_large_2019, yes: yes_v_large_2019, employees: "More than 1000" },
 ];
 
 // Transpose the data into layers
@@ -118,7 +130,7 @@ svg.append("text")
   .attr("y",margin.left-80)
   .attr("text-anchor", "middle")  
   .style("font-size", "16px") 
-  .text("Number of Companies")
+  .text("Percent of Companies")
   .attr("transform", function(d) {
      return "rotate(-90)" 
     });
@@ -136,7 +148,7 @@ var x = d3.scale.ordinal()
   .rangeRoundBands([10, width-50], 0.60); 
 
 var y = d3.scale.linear()
-  .domain([0,300])
+  .domain([0,100])
   .range([height- 50, 0]);
 
 //Set the color
@@ -186,7 +198,7 @@ var rect = groups.selectAll("rect")
     var xPosition = d3.mouse(this)[0] - 15;
     var yPosition = d3.mouse(this)[1] - 25;
     tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-    tooltip.select("text").text(d.y);
+    tooltip.select("text").text(d.y + "%");
   });
 
 
@@ -226,7 +238,7 @@ tooltip.append("rect")
   .style("opacity", 0.5);
 
 tooltip.append("text")
-  .attr("x", 15)
+  .attr("x", 15) 
   .attr("dy", "1.2em")
   .style("text-anchor", "middle")
   .attr("font-size", "12px")
