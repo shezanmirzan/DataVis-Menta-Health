@@ -178,12 +178,38 @@
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	console.log(svg);
 
+	//Extra info 
+	var svgText = d3.select('body').append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+	.attr("transform", "translate(" +20 +"," + margin.top + ")");
+
+	var rectangle = svgText.append("rect")
+	.attr("x", 10)
+	.attr("y", 10)
+	.attr("width", 500)
+	.attr("height", 70)
+	.attr("fill", "#D3D3D3");
+
+	var content1 = svgText.append("text")
+	.text("*Statewise tooltip denotes percentage of people with mental disorder ")
+	.attr("transform", "translate(" +20 +"," +30+ ")")
+	.style("font-weight","bold")
+	.style("font-family", "Times New Roman");
+
+	var content2 = svgText.append("text")
+	.text("*Colour in the map ranges as per the tooltip percentage")
+	.attr("transform", "translate(" +20 +"," +50+ ")")
+	.style("font-weight","bold")
+
+	
 	d3.json("data.json", function(error, yearData){
 	uStates.draw("#statesvg", sampleData, tooltipHtml, yearData[2016],"#barsvg");
 
 	var slider = svg.append('g')
         .classed('slider', true)
-		.attr('transform', "translate(" + (margin.left +150) + ", " + (height + margin.bottom - 250) + ")");
+		.attr('transform', "translate(" + (margin.left ) + ", " + (height + margin.bottom - 250) + ")");
 	
 	var slideScale = d3.scale.linear()
         .domain([0, 1])
