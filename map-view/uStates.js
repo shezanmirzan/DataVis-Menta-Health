@@ -114,7 +114,7 @@
             const arrSum = arr => arr.reduce((a,b) => a + b, 0)
 	        deno = arrSum(tF.map(function(d,i){ return tF[i].freq}));  
             ct = curData.filter(function(s){ return s.State == d.id;})[0];
-            return d3.interpolate("white", "green")(((ct["total"])*100/deno).toFixed(2)/10);
+            return d3.interpolate("white", "green")(ct["perc"]/100);
         })
     // calculate total frequency by segment for all state.
     
