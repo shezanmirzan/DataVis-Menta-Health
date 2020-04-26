@@ -75,7 +75,7 @@
 			d3.select("#tooltip").transition().duration(200).style("opacity", .9);      
 
     
-			d3.select("#tooltip").html(toolTip(d.n, st.freq, tF))  
+			d3.select("#tooltip").html(toolTip(d.n, st.freq, st.perc, tF))  
 				.style("left", (d3.event.pageX) + "px")     
                 .style("top", (d3.event.pageY - 28) + "px");
             
@@ -161,7 +161,7 @@
             .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
 
 
-        var xArray = ['Anxiety', 'Mood', 'Personality'];
+        var xArray = ['Anxiety', 'Mood', 'ADHD'];
         // create function for x-axis mapping.
         var x = d3.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1)
                 //.domain(fD.map(function(d) { return d[0]; }));

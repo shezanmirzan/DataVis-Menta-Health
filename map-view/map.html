@@ -115,15 +115,16 @@
 			"</table>";
 	}
  */
- function tooltipHtml(n,d,t){	/* function to create html content string in tooltip div. */
+ function tooltipHtml(n,d,a,t){	/* function to create html content string in tooltip div. */
 	//var deno=0;
     const arrSum = arr => arr.reduce((a,b) => a + b, 0)
 	deno = arrSum(t.map(function(d,i){ return t[i].freq})); 
-    //console.log(deno)
+    console.log(a)
 	var num = d.Anxiety_Disorder+d.Mood_Disorder+d.Personality_Disorder
-	//console.log(num)
+	console.log(num)
 		return "<h4>"+n+"</h4><table>"+
-			"<tr><td>Percent(%): </td><td>"+((num)*100/deno).toFixed(2)+"</td></tr>"+
+			//"<tr><td>Percent(%): </td><td>"+((num)*100/deno).toFixed(2)+"</td></tr>"+
+			"<tr><td>Percent(%): </td><td>"+a+"</td></tr>"+
 			"</table>";
 	}
 
@@ -178,7 +179,7 @@
 	console.log(svg);
 
 	d3.json("data.json", function(error, yearData){
-	uStates.draw("#statesvg", sampleData, tooltipHtml, yearData[2014],"#barsvg");
+	uStates.draw("#statesvg", sampleData, tooltipHtml, yearData[2016],"#barsvg");
 
 	var slider = svg.append('g')
         .classed('slider', true)
@@ -203,7 +204,7 @@
         .attr("class", "track")
         .attr('x1', slideScale.range()[0])
 		.attr('x2', slideScale.range()[1]);
-		var tickValues = [2014,2019];
+		var tickValues = [2016,2019];
 		
 	slider.insert("g", ".track-overlay")
 	.attr("class", "ticks")
