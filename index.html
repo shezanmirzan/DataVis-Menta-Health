@@ -51,11 +51,11 @@
      <div class="nav-scroller mb-4">
       <nav class="nav d-flex justify-content-between">
         <a class="p-2 text-muted" href="#map_view"><b> Statewise Disorders</b></a>
-        <a class="p-2 text-muted" href="#sunburst_view"><b>Demographics</b></a>
-        <a class="p-2 text-muted" href="#stacked_barchart_view"><b>Consequence Perception</b></a>
-        <a class="p-2 text-muted" href="#size_benefits"> <b>Size vs. Benefits</b></a>
-        <a class="p-2 text-muted" href="#willing_benefits"><b>Benefits vs. Willingness</b></a>
-        <a class="p-2 text-muted" href="#consequence_anonymity"><b>Consequences vs. Anonymity</b></a>
+        <a class="p-2 text-muted" href="#sunburst_view"><b>FamHist-vs-Willingness</b></a>
+        <a class="p-2 text-muted" href="#stacked_barchart_view"><b>Consequences-vs-Perception</b></a>
+        <a class="p-2 text-muted" href="#size_benefits"> <b>Size-vs-Benefits</b></a>
+        <a class="p-2 text-muted" href="#willing_benefits"><b>Benefits-vs-Willingness</b></a>
+        <a class="p-2 text-muted" href="#consequence_anonymity"><b>Conseq.-vs-Anonymity</b></a>
       </nav>
     </div>
     <div class="container mb-4">
@@ -98,19 +98,21 @@
 
 
     <!-- Statewise Disorders  -->
-    <h2 class="p-2">Statewise Disorders</h2>
-    <p>Statewise distribution of top mental disorders</p>
+    <h2 class="p-2">Statewise Distribution of Disorders</h2>
+    <p>State Wise Disribution of top mental disorders</p>
     <div id="map_view" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./map-view/map.html" height="100%" width="100%" style="height:882px;!important"></iframe></div>
 
     <h5 class="mb-1">Key Inferences/Insights:</h5>
     <ul>
       <li> Tech hubs like California, Washington and New York have the largest section of employees with mental disorders, which shows the overall stressful nature of the tech-industry. </li>
-      <li> Anxiety Disorder which includes generalized social phobia is the most commonly faced mental disorder within all states over the years </li>
+      <li> Mood Disorder which includes generalized social phobia is the most commonly faced mental disorder within all states over the years </li>
     </ul>
-    <b>Suggestions:</b> The mental health volunteers working for this cause can address the issue of anxiety disorder, and suggest solutions to the companies by analyzing viable options to mitigate its effects.
+    <b>Suggestions:</b> Mental health volunteers working for this cause can address the issue of mood disorder, and suggest solutions to the companies by analyzing viable options to mitigate its effects.
 
 
     <!-- Sunburst View  -->
+    <h2 class="p-2">Illness Family History vs Willingness to discuss with peers</h2>
+    <p>Effect of family history of mental illness on willingness to discuss with peers</p>
     <div id="includedContent"></div>
     <div id="sunburst_view" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Sun-Burst_View/index_sunburst.html" height="100%" width="100%"></iframe></div>
     <h5 class="mb-1">Key Inferences/Insights:</h5>
@@ -123,31 +125,23 @@
     <b>Suggestions:</b> The company can organize counselling sessions for their employees, especially for the ones with no family history of illness so that they feel comfortable discussing their issues and finding the solutions.  
 
 
+<!-- Anonymity vs perceived consequences -->
+<h2 class="p-2">Anonymity vs perceived consequences</h2>
+<div  align="center">
+  <iframe id="consequence_anonymity" class="p-4" allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Consequences-vs-Anonymity/index.html" height="75%" width="100%"></iframe>
+</div>
 
-    <!-- Consequence Perception -->
-    <h2 class="p-2">Consequence Perception</h2>
-    <p>Effects of factors on perception of negative consequences discussing mental health</p>
-    <div id="stacked_barchart_view" align="center" ><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Discussion-Stacked-Barchart_View/index.html" height="120%" width="100%" ></iframe></div>
-    <!--Shirley-->
-    <h5 class="mb-1">Key Inferences/Insights:</h5>
-    <ul>
-      <li>The most impactful feature on perception of consequence was the availability of sick leave being easy, as it tended to have the 1st or 2nd highest correlation with a "none" response out of all factors.</li> 
-      <li> While resources and knowledge of mental health care options decreased perceptions of consequences, they were not as impactful as direct company policies, such as sick leave and anonymity.</li>
-      <li>There is a positive correlation between no perception of negative consequences with mental and with physical health, suggeting that workplaces that care about physical health also tend to care more abbout mental health too.</li>
-    </ul>
-    <b>Suggestions:</b> Companies can make their employees feel more comfortable talking about mental health without fearing consequences if they add policies that help protect workers, such as anonymity and availability of sick leave, rather than just educational resources about mental health. 
-    <!-- <li>Milk</li> -->
-  </ul>
-  <p>The relationship between company size and if the company provides mental health benefits</p> 
-  <div id="size_benefits" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Size-Benefits-Barchart_View/index.html" height="55%" width="100%"></iframe></div>
-  <h4 class="mb-1">Key Inferences/Insights:</h4>
-  <ul>
-   <li> Larger companies are more willing to provide mental health benefits on average up until 2019</li>
-   <li> Over time more companies have began to provide benefits regardless of size, hinting that companies are realizing that mental health is important</li>
- </ul>
- <p><b>Suggestions:</b> Smaller companies should provide equal amounts of support as larger companies and attempt to catch up to the larger companies. </p>
+<h4 class="mb-1">Key Inferences/Insights:</h4>
+<ul>
+  <li>Protection of anonymity plays a big role in how people percieve there to be negative consequences of discussing illness.
+  Employees who think that anonymity is protected/mostly protected are confident that there won't/might not be negative consequences.  </li> 
+  <li> In general, many employees believe that discussing mental health issues would have higher negative consequences as compared to discussing physical health issues</li>
+</ul>   
 
- <h2 class="p-2">Willingness VS Company Benefits</h2>
+  
+
+  <!-- Willingness vs Company Benefits -->
+ <h2 class="p-2">Willingness vs Company Benefits</h2>
     <p>Chart shows how the companies affect their employees' ability to discuss their mental health issues in professional setting by providing suitable benefits in the health care package.</p>
  <div id="willing_benefits" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Willing-Benefits-Barchart_View/index.html" height="55%" width="100%"></iframe></div>
  <div>
@@ -159,16 +153,37 @@
   <b>Suggestions:</b> The visualization enables us to understand the fact that employees becoming more aware and discussing it under professional scenarios needs companies helping them through mental health benefits and setting up a stage for them to discuss their mental health issues.
 </div>
 
-<div  align="center">
-  <iframe id="consequence_anonymity" class="p-4" allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Consequences-vs-Anonymity/index.html" height="75%" width="100%"></iframe>
-</div>
 
+
+<!-- Company Size vs Benefits provided-->
+<h2 class="p-2">Company Size vs Benefits provided</h2>
+<p>The relationship between company size and if the company provides mental health benefits</p> 
+<div id="size_benefits" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Size-Benefits-Barchart_View/index.html" height="55%" width="100%"></iframe></div>
 <h4 class="mb-1">Key Inferences/Insights:</h4>
 <ul>
-  <li>Protection of anonymity plays a big role in how people percieve there to be negative consequences of discussing illness.
-  Employees who think that anonymity is protected/mostly protected are confident that there won't/might not be negative consequences.  </li> 
-  <li> In general, many employees believe that discussing mental health issues would have higher negative consequences as compared to discussing physical health issues</li>
+ <li> Larger companies are more willing to provide mental health benefits on average up until 2019</li>
+ <li> Over time more companies have began to provide benefits regardless of size, hinting that companies are realizing that mental health is important</li>
 </ul>
+<p><b>Suggestions:</b> Smaller companies should provide equal amounts of support as larger companies and attempt to catch up to the larger companies. </p>
+
+
+ <!-- Consequence vs Perception -->
+ <h2 class="p-2">Consequences vs Perception</h2>
+ <p>Effects of factors on perception of negative consequences discussing mental health</p>
+ <div id="stacked_barchart_view" align="center" ><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Discussion-Stacked-Barchart_View/index.html" height="120%" width="100%" ></iframe></div>
+ <!--Shirley-->
+ <h5 class="mb-1">Key Inferences/Insights:</h5>
+ <ul>
+   <li>The most impactful feature on perception of consequence was the availability of sick leave being easy, as it tended to have the 1st or 2nd highest correlation with a "none" response out of all factors.</li> 
+   <li> While resources and knowledge of mental health care options decreased perceptions of consequences, they were not as impactful as direct company policies, such as sick leave and anonymity.</li>
+   <li>There is a positive correlation between no perception of negative consequences with mental and with physical health, suggeting that workplaces that care about physical health also tend to care more abbout mental health too.</li>
+ </ul>
+ <b>Suggestions:</b> Companies can make their employees feel more comfortable talking about mental health without fearing consequences if they add policies that help protect workers, such as anonymity and availability of sick leave, rather than just educational resources about mental health. 
+ <!-- <li>Milk</li> -->
+</ul>
+
+
+<!-- Challenges and Issues -->
 <h2 class="p-2">Challenges and Issues</h2>
 <p>Although the data source was consistent, there were some problems associated with data consistencies across data for all three years.
   To do justice to the visulaizations, we point out some of them here along with our efforts to mitigate the issues to make
