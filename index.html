@@ -14,6 +14,11 @@
       margin:0px;
     }
 
+    h2 {
+      margin-left: 0px;
+      class: mb-1;
+    }
+
     h4 {
       margin-top: 10px;
       margin-bottom: 30px;
@@ -39,7 +44,7 @@
     <main role="main">
      <div class="nav-scroller mb-4">
       <nav class="nav d-flex justify-content-between">
-        <a class="p-2 text-muted" href="#map_view"><b> Map</b></a>
+        <a class="p-2 text-muted" href="#map_view"><b> Statewise Disorders</b></a>
         <a class="p-2 text-muted" href="#sunburst_view"><b>Demographics</b></a>
         <a class="p-2 text-muted" href="#stacked_barchart_view"><b>Consequence Perception</b></a>
         <a class="p-2 text-muted" href="#size_benefits"> <b>Size vs. Benefits</b></a>
@@ -68,11 +73,16 @@
           </div>
       </div>
     </div>
-    <!-- Map View  -->
 
+
+
+
+    <!-- Statewise Disorders  -->
+    <h2 class="p-2">Statewise Disorders</h2>
+    <p>Statewise distribution of top mental disorders</p>
     <div id="map_view" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./map-view/map.html" height="100%" width="100%" style="height:882px;!important"></iframe></div>
 
-    <h4 class="mb-1">Key Inferences/Insights:</h4>
+    <h5 class="mb-1">Key Inferences/Insights:</h5>
     <ul>
       <li> Tech hubs like California, Washington and New York have the largest section of employees with mental disorders, which shows the overall stressful nature of the tech-industry. </li>
       <li> Anxiety Disorder which includes generalized social phobia is the most commonly faced mental disorder within all states over the years </li>
@@ -83,7 +93,7 @@
 
     <div id="includedContent"></div>
     <div id="sunburst_view" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Sun-Burst_View/index_sunburst.html" height="100%" width="100%"></iframe></div>
-    <h4 class="mb-1">Key Inferences/Insights:</h4>
+    <h5 class="mb-1">Key Inferences/Insights:</h5>
     <ul>
       <li>People having family history of mental illness are more willing to discuss their issues and reach out for help</li>
       <li>Over the years, the tendency to open up about mental illness has increased among the employees </li>
@@ -93,9 +103,13 @@
     <b>Suggestions:</b> The company can organize counselling sessions for their employees, especially for the ones with no family history of illness so that they feel comfortable discussing their issues and finding the solutions.  
 
 
-    <div id="stacked_barchart_view" align="center" ><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Discussion-Stacked-Barchart_View/index.html" height="100%" width="100%" ></iframe></div>
+
+    <!-- Consequence Perception -->
+    <h2 class="p-2">Consequence Perception</h2>
+    <p>Effects of factors on perception of negative consequences discussing mental health</p>
+    <div id="stacked_barchart_view" align="center" ><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Discussion-Stacked-Barchart_View/index.html" height="120%" width="100%" ></iframe></div>
     <!--Shirley-->
-    <h4 class="mb-1">Key Inferences/Insights:</h4>
+    <h5 class="mb-1">Key Inferences/Insights:</h5>
     <ul>
       <li>The most impactful feature on perception of consequence was the availability of sick leave being easy, as it tended to have the 1st or 2nd highest correlation with a "none" response out of all factors.</li> 
       <li> While resources and knowledge of mental health care options decreased perceptions of consequences, they were not as impactful as direct company policies, such as sick leave and anonymity.</li>
@@ -104,15 +118,25 @@
     <b>Suggestions:</b> Companies can make their employees feel more comfortable talking about mental health without fearing consequences if they add policies that help protect workers, such as anonymity and availability of sick leave, rather than just educational resources about mental health. 
     <!-- <li>Milk</li> -->
   </ul>
+
+
+  <!-- Size-vs-Benefits-->
+  <h2 class="p-2">Size-vs-Benefits</h2>
+  <p>Company Size in Comparison to if Benefits are Provided</p>
   <div id="size_benefits" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Size-Benefits-Barchart_View/index.html" height="85%" width="100%"></iframe></div>
-  <h4 class="mb-1">Key Inferences/Insights:</h4>
+  <h5 class="mb-1">Key Inferences/Insights:</h5>
   <ul>
    <li> Larger companies are more willing to provide mental health benefits on average up until 2019</li>
    <li> Over time more companies have began to provide benefits regardless of size, hinting that companies are realizing that mental health is important</li>
  </ul>
+
+
+ <!-- Benefits vs Willingness -->
+ <h2 class="p-2">Benefits-vs-Willingness</h2>
+ <p>Willing to talk about Mental Health issues VS Company provides benefits for Mental Health issue</p>
  <div id="willing_benefits" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Willing-Benefits-Barchart_View/index.html" height="80%" width="100%"></iframe></div>
  <div>
-  <h4 class="mb-1">Key Inferences/Insights:</h4>
+  <h5 class="mb-1">Key Inferences/Insights:</h5>
   <ul>
     <li>Employees tend to be willing to discuss their mental health issues more often when their companies provide mental health support in the health care package.</li>
     <li>There has been an increase in the percentage of companies offering mental health support from year 2016 to 2019. This shows that more companies are becoming aware about providing mental health care benefits.</li>
@@ -120,16 +144,20 @@
   <b>Suggestions:</b> The visualization enables us to understand the fact that employees becoming more aware and discussing it under professional scenarios needs companies helping them through mental health benefits and setting up a stage for them to discuss their mental health issues.
 </div>
 
+<h2 class="p-2">Consequences-vs-Anonymity</h2>
+<p>Relation of employee anonymity with perceived consequences of discussing mental disorders </p>
 <div align="center">
-  <iframe id="consequence_anonymity" class="p-4" allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Consequences-vs-Anonymity/index.html" height="80%" width="100%"></iframe>
+  <iframe id="consequence_anonymity" class="p-4" allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Consequences-vs-Anonymity/index.html" height="70%" width="100%"></iframe>
 </div>
 
-<h4 class="mb-1">Key Inferences/Insights:</h4>
+<h5 class="mb-1">Key Inferences/Insights:</h5>
 <ul>
   <li>Protection of anonymity plays a big role in how people percieve there to be negative consequences of discussing illness.
   Employees who think that anonymity is protected/mostly protected are confident that there won't/might not be negative consequences.  </li> 
   <li> In general, many employees believe that discussing mental health issues would have higher negative consequences as compared to discussing physical health issues</li>
 </ul>
+
+<!-- Challenges and Issues -->
 <h2 class="p-2">Challenges and Issues</h2>
 <p>Although the data source was consistent, there were some problems associated with data consistencies across data for all three years.
   To do justice to the visulaizations, we point out some of them here along with our efforts to mitigate the issues to make
@@ -140,6 +168,12 @@ the visualization as warranted as possible.</p>
   <li><b> Missing columns:</b> Some important columns were missing altogether in a particular year's dataset. For instance, the type of disorder was completely missing in 2014's data. This has led us to completely ignore this data in particular visualization for trend analysis. In the 2019 data, there was no column for perception of negative consequences, so instead, we had to infer the data by taking the inverse of the responses for whether participants would be willing to talk to employers about mental health issues.</li>
   <!-- <li>Milk</li> -->
 </ul>
+
+<!-- Conclusions -->  
+<h2 class="p-2">Conclusions</h2>
+<p>Add one conclusion each</p>
+
+
 </main>
 </div>
 </body>
