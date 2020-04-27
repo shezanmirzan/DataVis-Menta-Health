@@ -14,14 +14,24 @@
       margin:0px;
     }
 
+    h2 {
+      margin-left: 0px;
+      class: mb-1;
+    }
+
     h4 {
       margin-top: 10px;
       margin-bottom: 30px;
     }
+
+    h4 {
+      margin-top: 0px;
+      margin-bottom: 30px;
+    }
+
     iframe {
       background: linen;
       overflow:hidden;
-      display:block;
     }
 
     .jumbotron{
@@ -40,18 +50,22 @@
     <main role="main">
      <div class="nav-scroller mb-4">
       <nav class="nav d-flex justify-content-between">
-        <a class="p-2 text-muted" href="#map_view">Map</a>
-        <a class="p-2 text-muted" href="#sunburst_view">Demographics</a>
-        <a class="p-2 text-muted" href="#stacked_barchart_view">Consequence Perception</a>
-        <a class="p-2 text-muted" href="#size_benefits">Size vs. Benefits</a>
-        <a class="p-2 text-muted" href="#willing_benefits">Benefits vs. Willingness</a>
-        <a class="p-2 text-muted" href="#consequence_anonymity">Consequences vs. Anonymity</a>
+        <a class="p-2 text-muted" href="#map_view"><b> Statewise Disorders</b></a>
+        <a class="p-2 text-muted" href="#sunburst_view"><b>Demographics</b></a>
+        <a class="p-2 text-muted" href="#stacked_barchart_view"><b>Consequence Perception</b></a>
+        <a class="p-2 text-muted" href="#size_benefits"> <b>Size vs. Benefits</b></a>
+        <a class="p-2 text-muted" href="#willing_benefits"><b>Benefits vs. Willingness</b></a>
+        <a class="p-2 text-muted" href="#consequence_anonymity"><b>Consequences vs. Anonymity</b></a>
       </nav>
     </div>
     <div class="container mb-4">
       <p class="lead">This project aims to understand how mental health is viewed in the Tech industry, the spread of mental disorders among the employees and to gauge the system present to tackle these conditions. D3 based visualizations based on the survey results of 3 different years will be implemented  to gain a multi-faceted view of our data. These designs would be beneficial to the current employees of the Tech industry, the companies themselves and the external organizations that work for the cause of mental well being in the IT industry. Insights gained through these visualizations would serve as a feedback to the entire system and thus would be highly beneficial to all the key stakeholders.</p>
     </div>
     <!-- <a href="./Sun-Burst_View/index_sunburst.html">Sunburst</a> -->
+
+
+
+    <!-- Introduction -->
     <div class="container">
       <h2 class="p-2">Introduction</h2>
       <p>In the present times, the IT industry is responsible for providing employment to a vast population of the United States. Mental well being of the employees of such a large sector is of utmost importance. To understand the current scenario of mental health in the IT industry, we have referred to the OSMI Mental Health Surveys of Tech Industry. On visualizing these survey responses and drawing meaningful inferences, the stakeholders could gauge how the entire support system for mental health is performing and whether it can be improved further.</p>
@@ -60,14 +74,34 @@
       </p>
       <p>We have used survey results for the years 2014, 2016 and 2019. This forms an extensive base for us to understand the current statistics of the Tech industry and find corresponding trends and correlations too. The data will be pre-processed to make it adaptable for the visualizations. The visualizations are aimed to be interactive and provide multiple views of our survey data. Being in the field of Computer Science, this problem motivates us to understand how mental health is viewed in the IT industry and understand the trends changing over years.
       </p>
+      <p>Along with answering basic questions like demographic distribution of disorders, the visualizations could also help understand subtle nuances like:</p>
+      <ul>
+        <li> Relation of employee anonymity with perceived consequences of discussing mental disorders.</li>
+        <li> Effect of employee’s family history of illness on their willing to reach out for help.</li>
+        <li>Relation of company size with availability of mental health resources.</li>
+        <li>Factors to be considered while evaluating company support for mental health well being.</li>
+      </ul>
+
+      <!-- General Data Statistics -->
+      <h2 class="p-2">General Data Statistics</h2>
+      <div align="center">
+          <img src="table.png" width="50%"/>
+          <div style="display:inline">
+              <!-- <img src="c1.svg"/> -->
+              <img src="c2.svg"/> 
+          </div>
+      </div>
     </div>
-    <!-- TODO : Add table and data insights -->
 
-    <!-- Map View  -->
 
-    <div id="map_view" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./map-view/map.html" height="100%" width="100%"></iframe></div>
 
-    <h4 class="mb-1">Key Inferences/Insights:</h4>
+
+    <!-- Statewise Disorders  -->
+    <h2 class="p-2">Statewise Disorders</h2>
+    <p>Statewise distribution of top mental disorders</p>
+    <div id="map_view" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./map-view/map.html" height="100%" width="100%" style="height:882px;!important"></iframe></div>
+
+    <h5 class="mb-1">Key Inferences/Insights:</h5>
     <ul>
       <li> Tech hubs like California, Washington and New York have the largest section of employees with mental disorders, which shows the overall stressful nature of the tech-industry. </li>
       <li> Anxiety Disorder which includes generalized social phobia is the most commonly faced mental disorder within all states over the years </li>
@@ -75,10 +109,10 @@
     <b>Suggestions:</b> The mental health volunteers working for this cause can address the issue of anxiety disorder, and suggest solutions to the companies by analyzing viable options to mitigate its effects.
 
 
-
+    <!-- Sunburst View  -->
     <div id="includedContent"></div>
-    <div id="sunburst_view" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Sun-Burst_View/index_sunburst.html" height="20%" width="100%"></iframe></div>
-    <h4 class="mb-1">Key Inferences/Insights:</h4>
+    <div id="sunburst_view" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Sun-Burst_View/index_sunburst.html" height="100%" width="100%"></iframe></div>
+    <h5 class="mb-1">Key Inferences/Insights:</h5>
     <ul>
       <li>People having family history of mental illness are more willing to discuss their issues and reach out for help</li>
       <li>Over the years, the tendency to open up about mental illness has increased among the employees </li>
@@ -88,9 +122,13 @@
     <b>Suggestions:</b> The company can organize counselling sessions for their employees, especially for the ones with no family history of illness so that they feel comfortable discussing their issues and finding the solutions.  
 
 
-    <div id="stacked_barchart_view" align="center" style="height: 700px;" ><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Discussion-Stacked-Barchart_View/index.html" height="700px" width="1000px"></iframe></div>
+
+    <!-- Consequence Perception -->
+    <h2 class="p-2">Consequence Perception</h2>
+    <p>Effects of factors on perception of negative consequences discussing mental health</p>
+    <div id="stacked_barchart_view" align="center" ><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Discussion-Stacked-Barchart_View/index.html" height="120%" width="100%" ></iframe></div>
     <!--Shirley-->
-    <h4 class="mb-1">Key Inferences/Insights:</h4>
+    <h5 class="mb-1">Key Inferences/Insights:</h5>
     <ul>
       <li>The most impactful feature on perception of consequence was the availability of sick leave being easy, as it tended to have the 1st or 2nd highest correlation with a "none" response out of all factors.</li> 
       <li> While resources and knowledge of mental health care options decreased perceptions of consequences, they were not as impactful as direct company policies, such as sick leave and anonymity.</li>

@@ -151,8 +151,8 @@
     
     function histoGram(fD,id){
         var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
-        hGDim.w = 300 - hGDim.l - hGDim.r, 
-        hGDim.h = 300 - hGDim.t - hGDim.b;
+        hGDim.w = 200 - hGDim.l - hGDim.r, 
+        hGDim.h = 250 - hGDim.t - hGDim.b;
         
         //create svg for histogram.
         var hGsvg = d3.select(id).append("svg")
