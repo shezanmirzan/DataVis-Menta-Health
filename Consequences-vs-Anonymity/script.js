@@ -4,7 +4,7 @@ var margin = {
         bottom: 60,
         left: 40
     },
-    width = 560 - margin.left - margin.right,
+    width = 460 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 
 var x0 = d3.scale.ordinal()
