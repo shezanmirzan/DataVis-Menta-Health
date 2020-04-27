@@ -23,6 +23,12 @@
       margin-top: 10px;
       margin-bottom: 30px;
     }
+
+    h4 {
+      margin-top: 0px;
+      margin-bottom: 30px;
+    }
+
     iframe {
       background: linen;
       overflow:hidden;
@@ -56,6 +62,10 @@
       <p class="lead">This project aims to understand how mental health is viewed in the Tech industry, the spread of mental disorders among the employees and to gauge the system present to tackle these conditions. D3 based visualizations based on the survey results of 3 different years will be implemented  to gain a multi-faceted view of our data. These designs would be beneficial to the current employees of the Tech industry, the companies themselves and the external organizations that work for the cause of mental well being in the IT industry. Insights gained through these visualizations would serve as a feedback to the entire system and thus would be highly beneficial to all the key stakeholders.</p>
     </div>
     <!-- <a href="./Sun-Burst_View/index_sunburst.html">Sunburst</a> -->
+
+
+
+    <!-- Introduction -->
     <div class="container">
       <h2 class="p-2">Introduction</h2>
       <p>In the present times, the IT industry is responsible for providing employment to a vast population of the United States. Mental well being of the employees of such a large sector is of utmost importance. To understand the current scenario of mental health in the IT industry, we have referred to the OSMI Mental Health Surveys of Tech Industry. On visualizing these survey responses and drawing meaningful inferences, the stakeholders could gauge how the entire support system for mental health is performing and whether it can be improved further.</p>
@@ -64,6 +74,15 @@
       </p>
       <p>We have used survey results for the years 2014, 2016 and 2019. This forms an extensive base for us to understand the current statistics of the Tech industry and find corresponding trends and correlations too. The data will be pre-processed to make it adaptable for the visualizations. The visualizations are aimed to be interactive and provide multiple views of our survey data. Being in the field of Computer Science, this problem motivates us to understand how mental health is viewed in the IT industry and understand the trends changing over years.
       </p>
+      <p>Along with answering basic questions like demographic distribution of disorders, the visualizations could also help understand subtle nuances like:</p>
+      <ul>
+        <li> Relation of employee anonymity with perceived consequences of discussing mental disorders.</li>
+        <li> Effect of employee’s family history of illness on their willing to reach out for help.</li>
+        <li>Relation of company size with availability of mental health resources.</li>
+        <li>Factors to be considered while evaluating company support for mental health well being.</li>
+      </ul>
+
+      <!-- General Data Statistics -->
       <h2 class="p-2">General Data Statistics</h2>
       <div align="center">
           <img src="table.png" width="50%"/>
@@ -90,7 +109,7 @@
     <b>Suggestions:</b> The mental health volunteers working for this cause can address the issue of anxiety disorder, and suggest solutions to the companies by analyzing viable options to mitigate its effects.
 
 
-
+    <!-- Sunburst View  -->
     <div id="includedContent"></div>
     <div id="sunburst_view" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Sun-Burst_View/index_sunburst.html" height="100%" width="100%"></iframe></div>
     <h5 class="mb-1">Key Inferences/Insights:</h5>
@@ -117,65 +136,70 @@
     </ul>
     <b>Suggestions:</b> Companies can make their employees feel more comfortable talking about mental health without fearing consequences if they add policies that help protect workers, such as anonymity and availability of sick leave, rather than just educational resources about mental health. 
     <!-- <li>Milk</li> -->
-  </ul>
+    </ul>
 
 
-  <!-- Size-vs-Benefits-->
-  <h2 class="p-2">Size-vs-Benefits</h2>
-  <p>Company Size in Comparison to if Benefits are Provided</p>
-  <div id="size_benefits" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Size-Benefits-Barchart_View/index.html" height="85%" width="100%"></iframe></div>
-  <h5 class="mb-1">Key Inferences/Insights:</h5>
-  <ul>
-   <li> Larger companies are more willing to provide mental health benefits on average up until 2019</li>
-   <li> Over time more companies have began to provide benefits regardless of size, hinting that companies are realizing that mental health is important</li>
- </ul>
+    <!-- Size-vs-Benefits-->
+    <h2 class="p-2">Size-vs-Benefits</h2>
+    <p>Company Size in Comparison to if Benefits are Provided</p>
+    <div id="size_benefits" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Size-Benefits-Barchart_View/index.html" height="85%" width="100%"></iframe></div>
+    <h5 class="mb-1">Key Inferences/Insights:</h5>
+    <ul>
+    <li> Larger companies are more willing to provide mental health benefits on average up until 2019</li>
+    <li> Over time more companies have began to provide benefits regardless of size, hinting that companies are realizing that mental health is important</li>
+    </ul>
 
 
- <!-- Benefits vs Willingness -->
- <h2 class="p-2">Benefits-vs-Willingness</h2>
- <p>Willing to talk about Mental Health issues VS Company provides benefits for Mental Health issue</p>
- <div id="willing_benefits" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Willing-Benefits-Barchart_View/index.html" height="80%" width="100%"></iframe></div>
- <div>
-  <h5 class="mb-1">Key Inferences/Insights:</h5>
-  <ul>
-    <li>Employees tend to be willing to discuss their mental health issues more often when their companies provide mental health support in the health care package.</li>
-    <li>There has been an increase in the percentage of companies offering mental health support from year 2016 to 2019. This shows that more companies are becoming aware about providing mental health care benefits.</li>
-  </ul>
-  <b>Suggestions:</b> The visualization enables us to understand the fact that employees becoming more aware and discussing it under professional scenarios needs companies helping them through mental health benefits and setting up a stage for them to discuss their mental health issues.
-</div>
 
-<h2 class="p-2">Consequences-vs-Anonymity</h2>
-<p>Relation of employee anonymity with perceived consequences of discussing mental disorders </p>
-<div align="center">
-  <iframe id="consequence_anonymity" class="p-4" allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Consequences-vs-Anonymity/index.html" height="70%" width="100%"></iframe>
-</div>
-
-<h5 class="mb-1">Key Inferences/Insights:</h5>
-<ul>
-  <li>Protection of anonymity plays a big role in how people percieve there to be negative consequences of discussing illness.
-  Employees who think that anonymity is protected/mostly protected are confident that there won't/might not be negative consequences.  </li> 
-  <li> In general, many employees believe that discussing mental health issues would have higher negative consequences as compared to discussing physical health issues</li>
-</ul>
-
-<!-- Challenges and Issues -->
-<h2 class="p-2">Challenges and Issues</h2>
-<p>Although the data source was consistent, there were some problems associated with data consistencies across data for all three years.
-  To do justice to the visulaizations, we point out some of them here along with our efforts to mitigate the issues to make
-the visualization as warranted as possible.</p>
-<ul style="list-style-type:circle;">
-  <li><b> Missing Data:</b> The data was presented in '.csv' format and seemed to have consitsted of many missing values. Wherever required, some of the data was extrapolated by either the mean/median value of that particular row. For some visualization, where the data couldn't be extrapolated, the rows were dropped keeping in mind that this wouldn't cause any low-data bias.</li>
-  <li><b> Free-filled Data:</b>The data was collected without pre-defined possible field values for each column. This has led to many different field values for something that represent same original value. For instance, in 2016 data, there are 70 unique genders. In such scenarios,  we tried our best to group up the genders while respecting the participants' answers. We also drop the columns that have custom responses because those are difficult to analyze without going through each response manually.</li>
-  <li><b> Missing columns:</b> Some important columns were missing altogether in a particular year's dataset. For instance, the type of disorder was completely missing in 2014's data. This has led us to completely ignore this data in particular visualization for trend analysis. In the 2019 data, there was no column for perception of negative consequences, so instead, we had to infer the data by taking the inverse of the responses for whether participants would be willing to talk to employers about mental health issues.</li>
-  <!-- <li>Milk</li> -->
-</ul>
-
-<!-- Conclusions -->  
-<h2 class="p-2">Conclusions</h2>
-<p>Add one conclusion each</p>
+    <!-- Benefits vs Willingness -->
+    <h2 class="p-2">Benefits-vs-Willingness</h2>
+    <p>Willing to talk about Mental Health issues VS Company provides benefits for Mental Health issue</p>
+    <div id="willing_benefits" align="center" class="p-4"><iframe allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Willing-Benefits-Barchart_View/index.html" height="80%" width="70%"></iframe></div>
+    <div>
+      <h5 class="mb-1">Key Inferences/Insights:</h5>
+      <ul>
+        <li>Employees tend to be willing to discuss their mental health issues more often when their companies provide mental health support in the health care package.</li>
+        <li>There has been an increase in the percentage of companies offering mental health support from year 2016 to 2019. This shows that more companies are becoming aware about providing mental health care benefits.</li>
+      </ul>
+      <b>Suggestions:</b> The visualization enables us to understand the fact that employees becoming more aware and discussing it under professional scenarios needs companies helping them through mental health benefits and setting up a stage for them to discuss their mental health issues.
+    </div>
 
 
-</main>
-</div>
+
+    <!-- Consequences-vs-Anonymity -->
+    <h2 class="p-2">Consequences-vs-Anonymity</h2>
+    <p>Relation of employee anonymity with perceived consequences of discussing mental disorders </p>
+    <div align="center">
+      <iframe id="consequence_anonymity" class="p-4" allowtransparency="true" frameborder="0" overflow="hidden" scrolling="no" src="./Consequences-vs-Anonymity/index.html" height="70%" width="100%"></iframe>
+    </div>
+
+    <h5 class="mb-1">Key Inferences/Insights:</h5>
+    <ul>
+      <li>Protection of anonymity plays a big role in how people percieve there to be negative consequences of discussing illness.
+      Employees who think that anonymity is protected/mostly protected are confident that there won't/might not be negative consequences.  </li> 
+      <li> In general, many employees believe that discussing mental health issues would have higher negative consequences as compared to discussing physical health issues</li>
+    </ul>
+
+    <!-- Challenges and Issues -->
+    <h2 class="p-2">Challenges and Issues</h2>
+    <p>Although the data source was consistent, there were some problems associated with data consistencies across data for all three years.
+      To do justice to the visulaizations, we point out some of them here along with our efforts to mitigate the issues to make
+    the visualization as warranted as possible.</p>
+    <ul style="list-style-type:circle;">
+      <li><b> Missing Data:</b> The data was presented in '.csv' format and seemed to have consitsted of many missing values. Wherever required, some of the data was extrapolated by either the mean/median value of that particular row. For some visualization, where the data couldn't be extrapolated, the rows were dropped keeping in mind that this wouldn't cause any low-data bias.</li>
+      <li><b> Free-filled Data:</b>The data was collected without pre-defined possible field values for each column. This has led to many different field values for something that represent same original value. For instance, in 2016 data, there are 70 unique genders. In such scenarios,  we tried our best to group up the genders while respecting the participants' answers. We also drop the columns that have custom responses because those are difficult to analyze without going through each response manually.</li>
+      <li><b> Missing columns:</b> Some important columns were missing altogether in a particular year's dataset. For instance, the type of disorder was completely missing in 2014's data. This has led us to completely ignore this data in particular visualization for trend analysis. In the 2019 data, there was no column for perception of negative consequences, so instead, we had to infer the data by taking the inverse of the responses for whether participants would be willing to talk to employers about mental health issues.</li>
+      <li><b> Data Skewness:</b> Data is not evenly distributed across all age-groups, states, company sizes, etc. These create certain biases in the data. We demonstrate comparisions using percentages against absolute count in most visualization to tackle the bias issue, however, some bias remains inevitable.</li>
+      <!-- <li>Milk</li> -->
+    </ul>
+
+    <!-- Conclusions -->  
+    <h2 class="p-2">Conclusions</h2>
+    <p>Add one conclusion each</p>
+
+
+    </main>
+  </div>
 </body>
 
 
