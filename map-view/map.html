@@ -181,27 +181,27 @@
 	//Extra info 
 	var svgText = d3.select('body').append("svg")
     .attr("width", width + margin.left + margin.right)
-	.attr("height", height + margin.top + margin.bottom)
+	.attr("height", 100 + margin.top + margin.bottom)
 	.attr("transform", "translate(" + 400+"," + -950 + ")")
     .append("g")
 	.attr("transform", "translate(" + margin.left +"," + margin.top + ")");
 
 	var rectangle = svgText.append("rect")
-	.attr("x", 10)
+	.attr("x", 100)
 	.attr("y", 10)
-	.attr("width", 500)
-	.attr("height", 70)
+	.attr("width", 350)
+	.attr("height", 50)
 	.attr("fill", "#D3D3D3");
 
 	var content1 = svgText.append("text")
-	.text("*Statewise tooltip denotes percentage of people with mental disorder ")
-	.attr("transform", "translate(" +20 +"," +30+ ")")
+	.text("Tooltip & colour denote statewise percent of")
+	.attr("transform", "translate(" +110 +"," +30+ ")")
 	.style("font-weight","bold")
 	.style("font-family", "Times New Roman");
 
 	var content2 = svgText.append("text")
-	.text("*Colour in the map ranges as per the tooltip percentage")
-	.attr("transform", "translate(" +20 +"," +50+ ")")
+	.text("  people with mental disorder in the state")
+	.attr("transform", "translate(" +120 +"," +50+ ")")
 	.style("font-weight","bold")
 
 	
