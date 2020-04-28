@@ -189,9 +189,9 @@ function changeImage(){
     if(foundIndex==1 && curDropIndex==1){
         filename="2016-Physical.png"}
     if(foundIndex==2 && curDropIndex==0){
-        filename="hmap20.png"}
+        filename="2019-Physical.png"}
     if(foundIndex==2 && curDropIndex==1){
-        filename="hmap21.png"}
+        filename="2016-Mental.png"}
     
     myimg = svgImage.append('image')
         .attr('xlink:href', filename)

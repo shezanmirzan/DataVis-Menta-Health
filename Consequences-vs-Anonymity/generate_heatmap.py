@@ -12,7 +12,7 @@ import numpy as np
 fig = plt.figure();
 ax= plt.subplot()
 fig.set_facecolor('#faf0e6')
-cm = np.load('./Data/2016_Physical.npy')
+cm = np.load('./Data/2019_Mental.npy')
 sns.heatmap(cm, annot=True, fmt="d", ax = ax); #annot=True to annotate cells
 
 # labels, title and ticks
